@@ -1,0 +1,20 @@
+Short information
+-----------------
+MM3DRead * Status reader program for MM3D device
+Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>
+Homepage: <http://www.szerafingomba.hu/softwares/>
+
+Hardware
+ - architecture:        arm, i386
+ - operation system:    FreeBSD, Linux, Windows
+
+Software
+ - version:             v0.1
+ - licence:             EUPL v1.1
+ - language:            en
+
+External libraries in package
+
+
+*** WARNING! It is not yet useable, because it is under development. WARNING ***
+
