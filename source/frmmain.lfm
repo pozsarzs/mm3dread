@@ -1,12 +1,13 @@
 object Form1: TForm1
-  Left = 285
+  Left = 297
   Height = 329
-  Top = 134
-  Width = 295
-  BorderStyle = bsSingle
+  Top = 162
+  Width = 358
   Caption = 'Form1'
   ClientHeight = 329
-  ClientWidth = 295
+  ClientWidth = 358
+  Constraints.MinHeight = 329
+  Constraints.MinWidth = 306
   Icon.Data = {
     BE0800000000010001002020000001000800A808000016000000280000002000
     0000400000000100080000000000000000000000000000000000000000000000
@@ -81,6 +82,8 @@ object Form1: TForm1
     FFFF
   }
   OnCreate = FormCreate
+  OnResize = FormResize
+  Position = poDefaultPosOnly
   LCLVersion = '1.6.2.0'
   object Shape2: TShape
     AnchorSideLeft.Control = Bevel3
@@ -89,10 +92,10 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Bevel3
     AnchorSideBottom.Side = asrBottom
-    Left = 152
+    Left = 183
     Height = 57
     Top = 41
-    Width = 138
+    Width = 169
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 2
     Brush.Color = 5046272
@@ -107,7 +110,7 @@ object Form1: TForm1
     Left = 6
     Height = 57
     Top = 41
-    Width = 138
+    Width = 169
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 2
     Brush.Color = 5046272
@@ -120,25 +123,31 @@ object Form1: TForm1
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 176
+    Width = 196
     Anchors = [akTop, akLeft, akRight]
+    AutoComplete = True
+    AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
     BorderSpacing.Around = 4
+    CharCase = ecLowerCase
     ItemHeight = 0
+    OnChange = ComboBox1Change
     ParentShowHint = False
     ShowHint = True
+    Sorted = True
     TabOrder = 0
   end
   object SpeedButton1: TSpeedButton
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
+    AnchorSideRight.Control = SpeedButton2
     AnchorSideBottom.Side = asrCenter
-    Left = 268
+    Left = 277
     Height = 23
-    Hint = 'Read!'
+    Hint = 'Read data from device'
     Top = 4
     Width = 23
     Anchors = [akTop, akRight]
-    BorderSpacing.Around = 4
+    BorderSpacing.Right = 4
+    Enabled = False
+    Flat = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000000000000000
@@ -175,6 +184,7 @@ object Form1: TForm1
       000004733AFF2D8859FF859C90FF000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    OnClick = SpeedButton1Click
     ShowHint = True
     ParentShowHint = False
   end
@@ -182,11 +192,11 @@ object Form1: TForm1
     AnchorSideRight.Control = SpeedButton1
     AnchorSideBottom.Control = ComboBox1
     AnchorSideBottom.Side = asrBottom
-    Left = 184
+    Left = 204
     Height = 23
     Hint = 'UID'
     Top = 4
-    Width = 80
+    Width = 69
     Anchors = [akTop, akRight]
     BorderSpacing.Around = 4
     ParentShowHint = False
@@ -198,12 +208,12 @@ object Form1: TForm1
     AnchorSideLeft.Control = ComboBox1
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = SpeedButton1
+    AnchorSideRight.Control = SpeedButton3
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 13
     Top = 35
-    Width = 287
+    Width = 350
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 2
     Shape = bsTopLine
@@ -215,7 +225,7 @@ object Form1: TForm1
     Left = 4
     Height = 61
     Top = 39
-    Width = 142
+    Width = 173
     BorderSpacing.Top = 8
   end
   object Bevel3: TBevel
@@ -225,10 +235,10 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton1
     AnchorSideRight.Side = asrBottom
-    Left = 150
+    Left = 181
     Height = 61
     Top = 39
-    Width = 142
+    Width = 173
     BorderSpacing.Left = 4
     BorderSpacing.Top = 8
   end
@@ -248,7 +258,7 @@ object Form1: TForm1
   object Label2: TLabel
     AnchorSideLeft.Control = Bevel3
     AnchorSideTop.Control = Bevel3
-    Left = 154
+    Left = 185
     Height = 13
     Top = 43
     Width = 96
@@ -262,7 +272,7 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel2
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Bevel2
-    Left = 45
+    Left = 60
     Height = 24
     Top = 62
     Width = 60
@@ -278,7 +288,7 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel3
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Bevel3
-    Left = 187
+    Left = 233
     Height = 24
     Top = 62
     Width = 69
@@ -294,17 +304,17 @@ object Form1: TForm1
     AnchorSideLeft.Control = ComboBox1
     AnchorSideTop.Control = Bevel2
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = SpeedButton1
+    AnchorSideRight.Control = SpeedButton3
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
     Top = 104
-    Width = 287
+    Width = 350
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Inputs'
     ClientHeight = 50
-    ClientWidth = 283
+    ClientWidth = 346
     TabOrder = 2
     object Bevel4: TBevel
       AnchorSideLeft.Control = GroupBox1
@@ -313,6 +323,7 @@ object Form1: TForm1
       Height = 18
       Top = 8
       Width = 30
+      Anchors = [akTop]
       BorderSpacing.Left = 30
       BorderSpacing.Top = 8
     end
@@ -462,17 +473,17 @@ object Form1: TForm1
     AnchorSideLeft.Control = ComboBox1
     AnchorSideTop.Control = GroupBox1
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = SpeedButton1
+    AnchorSideRight.Control = SpeedButton3
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
     Top = 173
-    Width = 287
+    Width = 350
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Errors'
     ClientHeight = 50
-    ClientWidth = 283
+    ClientWidth = 346
     TabOrder = 3
     object Bevel8: TBevel
       AnchorSideLeft.Control = GroupBox2
@@ -481,6 +492,7 @@ object Form1: TForm1
       Height = 18
       Top = 8
       Width = 30
+      Anchors = [akTop]
       BorderSpacing.Left = 30
       BorderSpacing.Top = 8
     end
@@ -630,17 +642,17 @@ object Form1: TForm1
     AnchorSideLeft.Control = ComboBox1
     AnchorSideTop.Control = GroupBox2
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = SpeedButton1
+    AnchorSideRight.Control = SpeedButton3
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
     Top = 242
-    Width = 287
+    Width = 350
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Outputs'
     ClientHeight = 50
-    ClientWidth = 283
+    ClientWidth = 346
     TabOrder = 4
     object Bevel12: TBevel
       AnchorSideLeft.Control = GroupBox3
@@ -649,6 +661,7 @@ object Form1: TForm1
       Height = 18
       Top = 8
       Width = 30
+      Anchors = [akTop]
       BorderSpacing.Left = 30
       BorderSpacing.Top = 8
     end
@@ -798,7 +811,110 @@ object Form1: TForm1
     Left = 0
     Height = 17
     Top = 312
-    Width = 295
+    Width = 358
     Panels = <>
+  end
+  object SpeedButton2: TSpeedButton
+    AnchorSideRight.Control = SpeedButton3
+    Left = 304
+    Height = 22
+    Hint = 'Add URL to list'
+    Top = 4
+    Width = 23
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
+    Enabled = False
+    Flat = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      20000000000000040000640000006400000000000000000000000000000A6669
+      6770A8A9A9EBB4B5B5E7B5B7B6E7B6B7B7E8B7B8B7EAB8BAB9EBB9BBBAEBB9BB
+      BAFF618F72F6206E3DFE196B37FF206E3CFF1D6136A40000000100000000A0A2
+      A168CFD2D0D5E6E7E7C7EAECEBCBEDEEEDD2F1F2F1DAF3F4F4E1F7F7F7E9F7F7
+      F7FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378C00000000A9AB
+      AB64D5D7D6D2EDEFEEC3EFF0F0C9E8EAE9D6E8EAE9DFEAECEBE7ECEEEDED1E6F
+      3FFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F700000000AAAD
+      AB64D5D7D6D2ECEEEDC3ECEEEDCBD3D8D6E5CED2D0F0D0D4D2F3D1D5D3F6317B
+      4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FF00000000ADAF
+      AE64D6D8D7D1ECEDEDC2EDEFF0C9D4D8D7E3CFD2D0EED0D5D3F0D2D6D5F44488
+      61FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196C3AFD00000000AEB0
+      AF64D6D8D7CFECEEEEC0CABAACD6C6C1BAE7D0D6D4E9D0D3D1EDC1B6ABF4CABA
+      ACFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF1E77755E00000000B0B3
+      B164D5D8D7CEEBEEEDBDBD9E87E0B78C6BF8C4B6ACDFC2A690ECB78A67FCD7CB
+      C3FFD1D6D4FF579674FF4F8E66FF408660FF5AA09D550000000200000000B2B4
+      B364D6D8D7CBEBEDEDBAC2A48DDDCD9E73FFC09672FCC99A6FFFC79F7BFDBEB5
+      ADECDEE2E1E7DEE2E0E7F0F2F0DACFD1D0FB7B7E7D270000000000000000B4B6
+      B664D5D7D7C8E9ECECB5BF9F88DBCB996DFFCB996CFFCB996CFFC09772FDB4AC
+      A3EBD5D9D8E7D5D9D8E6EBEDEDD4CFD0D0F87D807F270000000000000000B6B8
+      B864D5D7D6C5E8EBEAB1BB9B82D9C59264FFC59062FFC59162FFBA8E69FDAFA6
+      9DEAD1D6D4E4D2D6D3E3E9EBEACECFD0CFF37E817F270000000000000000B9BB
+      B964D4D7D6C1E6EAE9ACB7967ED7BF8A5CFFBE8859FFBE895AFFB48862FDA9A1
+      98EBCBD0CFE4CCD1CFE3E5E8E7C8CDCFCEF07E8180270000000000000000BABC
+      BB64D3D6D5BDE5E9E8A6B29178D5B98254FFB87F50FFB88051FFB0825CFDA7A0
+      97E8CAD0CDE0CBD0CDDFE3E6E5C1CCCECDEB7F8280260000000000000000BCBE
+      BD64D3D6D4B9E4E6E6A1AE8C72D3B47A4CFFB27747FFB27848FFAB7C55FCA69F
+      96E4CACFCDDCCACFCDDBE1E4E3BACBCDCCE87F8281260000000000000000BEC0
+      BF65D5D8D7B9E7ECEC9FAC896FD2AD7243FFAC6F3FFFAC7040FFA8754DF9B7AB
+      A2C2ECEEEEADECEEEDAEEEF0EFABCCCECDE97F8381270000000000000000AAAD
+      AB4EBCC0BFC7C1B9B0CDA97F61F3B98660FFBA8861FFBA8861FFAF825FFAA095
+      8BD3BCBEBEC6BABCBBC7B9BBBAC6A7A9A8DA7B7E7D1900000000000000009296
+      9405ABB8BC0F956D5026A27250F8B38766FFB38766FFB38766FFAC7E5CDC7F52
+      322D9CA4A610999C9A11979A9811868987117376740100000000
+    }
+    OnClick = SpeedButton2Click
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object SpeedButton3: TSpeedButton
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 331
+    Height = 22
+    Hint = 'Remove URL from list'
+    Top = 4
+    Width = 23
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
+    Enabled = False
+    Flat = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      20000000000000040000640000006400000000000000000000000000000A6669
+      6770A8A9A9EBB4B5B5E7B5B7B6E7B6B7B7E8B7B8B7EAB8BAB9EBB9BBBAEBB9BB
+      BAFF0000B7FF000083FF000083FF000083FF000083930000000100000000A0A2
+      A168CFD2D0D5E6E7E7C7EAECEBCBEDEEEDD2F1F2F1DAF3F4F4E1F7F7F7E9F7F7
+      F7FF0000B7FF0000D0FF0000EAFF0000D0FF0000B7FF0000839300000000A9AB
+      AB64D5D7D6D2EDEFEEC3EFF0F0C9E8EAE9D6E8EAE9DFEAECEBE7ECEEEDED0000
+      83FF0000D0FF0000D0FF0000D0FF0000D0FF0000D0FF000083FF00000000AAAD
+      AB64D5D7D6D2ECEEEDC3ECEEEDCBD3D8D6E5CED2D0F0D0D4D2F3D1D5D3F60000
+      D0FF0000EAFFFFFFFFFFFFFFFFFFFFFFFFFF0000EAFF000083FF00000000ADAF
+      AE64D6D8D7D1ECEDEDC2EDEFF0C9D4D8D7E3CFD2D0EED0D5D3F0D2D6D5F40000
+      EAFF0000EAFF0000EAFF0000D0FF0000D0FF0000D0FF000083EC00000000AEB0
+      AF64D6D8D7CFECEEEEC0CABAACD6C6C1BAE7D0D6D4E9D0D3D1EDC1B6ABF4CABA
+      ACFF0000EAFF0000EAFF0000EAFF0000D0FF0000B6FF0000834900000000B0B3
+      B164D5D8D7CEEBEEEDBDBD9E87E0B78C6BF8C4B6ACDFC2A690ECB78A67FCD7CB
+      C3FFD1D6D4FF0000EAFF0000D0FF0000D0FF000083380000000200000000B2B4
+      B364D6D8D7CBEBEDEDBAC2A48DDDCD9E73FFC09672FCC99A6FFFC79F7BFDBEB5
+      ADECDEE2E1E7DEE2E0E7F0F2F0DACFD1D0FB7B7E7D240000000000000000B4B6
+      B664D5D7D7C8E9ECECB5BF9F88DBCB996DFFCB996CFFCB996CFFC09772FDB4AC
+      A3EBD5D9D8E7D5D9D8E6EBEDEDD4CFD0D0F87D807F270000000000000000B6B8
+      B864D5D7D6C5E8EBEAB1BB9B82D9C59264FFC59062FFC59162FFBA8E69FDAFA6
+      9DEAD1D6D4E4D2D6D3E3E9EBEACECFD0CFF37E817F270000000000000000B9BB
+      B964D4D7D6C1E6EAE9ACB7967ED7BF8A5CFFBE8859FFBE895AFFB48862FDA9A1
+      98EBCBD0CFE4CCD1CFE3E5E8E7C8CDCFCEF07E8180270000000000000000BABC
+      BB64D3D6D5BDE5E9E8A6B29178D5B98254FFB87F50FFB88051FFB0825CFDA7A0
+      97E8CAD0CDE0CBD0CDDFE3E6E5C1CCCECDEB7F8280260000000000000000BCBE
+      BD64D3D6D4B9E4E6E6A1AE8C72D3B47A4CFFB27747FFB27848FFAB7C55FCA69F
+      96E4CACFCDDCCACFCDDBE1E4E3BACBCDCCE87F8281260000000000000000BEC0
+      BF65D5D8D7B9E7ECEC9FAC896FD2AD7243FFAC6F3FFFAC7040FFA8754DF9B7AB
+      A2C2ECEEEEADECEEEDAEEEF0EFABCCCECDE97F8381270000000000000000AAAD
+      AB4EBCC0BFC7C1B9B0CDA97F61F3B98660FFBA8861FFBA8861FFAF825FFAA095
+      8BD3BCBEBEC6BABCBBC7B9BBBAC6A7A9A8DA7B7E7D1900000000000000009296
+      9405ABB8BC0F956D5026A27250F8B38766FFB38766FFB38766FFAC7E5CDC7F52
+      322D9CA4A610999C9A11979A9811868987117376740100000000
+    }
+    OnClick = SpeedButton3Click
+    ShowHint = True
+    ParentShowHint = False
   end
 end

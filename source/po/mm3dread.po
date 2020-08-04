@@ -94,6 +94,14 @@ msgid "ERR1"
 msgstr ""
 
 #: tform1.speedbutton1.hint
-msgid "Read!"
+msgid "Read data from device"
+msgstr ""
+
+#: tform1.speedbutton2.hint
+msgid "Add URL to list"
+msgstr ""
+
+#: tform1.speedbutton3.hint
+msgid "Remove URL from list"
 msgstr ""
 
