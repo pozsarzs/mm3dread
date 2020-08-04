@@ -1,9 +1,23 @@
+{ +--------------------------------------------------------------------------+ }
+{ | MM3DRead v0.1 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
+{ | frmmain.pas                                                              | }
+{ | Main form                                                                | }
+{ +--------------------------------------------------------------------------+ }
+
+//   This program is free software: you can redistribute it and/or modify it
+// under the terms of the European Union Public License 1.1 version.
+//
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE.
+
 unit frmmain;
 {$mode objfpc}{$H+}
 interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls;
+  StdCtrls, Buttons, ExtCtrls, untcommonproc;
 type
   { TForm1 }
   TForm1 = class(TForm)
@@ -74,6 +88,7 @@ type
   end;
 var
   Form1: TForm1;
+  cfgfile: string;
 
 implementation
 
@@ -132,6 +147,14 @@ end;
 // events of Form1
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  makeuserdir;
+  getlang;
+  getexepath;
+  Form1.Caption:=APPNAME+' v.'+VERSION;
+  // load configuration
+  cfgfile:=untcommonproc.userdir+DIR_CONFIG+'mm3dread.ini';
+//  if fsearch('mm3dread.ini',untcommonproc.userdir+DIR_CONFIG)<>''
+//    then loadconfig(cfgfile);
   Edit1.Top:=ComboBox1.Top+((ComboBox1.Height-Edit1.Height) div 2);
   SpeedButton1.Top:=Edit1.Top;
 end;
@@ -146,4 +169,3 @@ begin
 end;
 
 end.
-
