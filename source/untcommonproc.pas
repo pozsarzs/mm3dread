@@ -24,10 +24,10 @@ uses
  {$IFDEF WIN32}Windows,{$ENDIF}
   dos;
 var
-  exepath, p: shortstring;
+  exepath: shortstring;
   lang: string[2];
-  pathremotefiles: array[0..15] of string;
-  s: string;
+  uids: array[0..63] of string;
+  urls: array[0..63] of string;
   userdir: string;
 {$IFDEF WIN32}
 const
@@ -39,8 +39,8 @@ const
 
 function getexepath: string;
 function getlang: string;
-function loadinifile: boolean;
-function saveinifile: boolean;
+function loadconfiguration(filename: string): boolean;
+function saveconfiguration(filename: string): boolean;
 procedure makeuserdir;
 
 {$IFDEF WIN32}
@@ -57,6 +57,8 @@ implementation
 
 // get executable path
 function getexepath: string;
+var
+  p: shortstring;
 begin
   fsplit(paramstr(0),exepath,p,p);
   getexepath:=exepath;
@@ -64,11 +66,12 @@ end;
 
 // get system language
 function getlang: string;
-{$IFDEF WIN32}
 var
+{$IFDEF WIN32}
   buffer : pchar;
   size : integer;
 {$ENDIF}
+  s: string;
 begin
  {$IFDEF UNIX}
   s:=getenv('LANG');
@@ -88,6 +91,46 @@ begin
   getlang:=lang;
 end;
 
+// load configuration
+function loadconfiguration(filename: string): boolean;
+var
+  b: byte;
+  iif: TINIFile;
+begin
+  iif:=TIniFile.Create(filename);
+  loadconfiguration:=true;
+  try
+    for b:=0 to 63 do
+      uids[b]:=iif.ReadString('uids',inttostr(b+1),'');
+    for b:=0 to 63 do
+      urls[b]:=iif.ReadString('urls',inttostr(b+1),'');
+  except
+    showmessage(MESSAGE01);
+    loadconfiguration:=false;
+  end;
+  iif.Free;
+end;
+
+// save configuration
+function saveconfiguration(filename: string): boolean;
+var
+  b: byte;
+  iif: TINIFile;
+begin
+  iif:=TIniFile.Create(filename);
+  saveconfiguration:=true;
+  try
+    for b:=0 to 63 do
+      iif.WriteString('uids',inttostr(b+1),uids[b]);
+    for b:=0 to 63 do
+      iif.WriteString('urls',inttostr(b+1),urls[b]);
+  except
+    saveconfiguration:=false;
+    showmessage(MESSAGE02);
+  end;
+  iif.Free;
+end;
+
 // make user's directory
 procedure makeuserdir;
 {$IFDEF WIN32}
@@ -99,14 +142,6 @@ var
     fillchar(buffer, sizeof(buffer), 0);
     ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
     result:=string(pchar(@buffer));
-  end;
-
-  function GetWindowsTemp: string;
-  begin  
-    fillchar(buffer,MAX_PATH+1, 0);
-    GetTempPath(MAX_PATH, buffer);
-    result:=string(pchar(@buffer));
-    if result[length(result)]<>'\' then result:=result+'\';
   end;
 {$ENDIF}
 

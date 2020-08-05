@@ -9,14 +9,6 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: tform1.edit1.hint
-msgid "UID"
-msgstr ""
-
-#: tform1.edit1.text
-msgid "00000000"
-msgstr ""
-
 #: tform1.groupbox1.caption
 msgid "Inputs"
 msgstr ""

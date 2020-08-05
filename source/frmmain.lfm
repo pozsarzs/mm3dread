@@ -81,6 +81,7 @@ object Form1: TForm1
     000180000001800000018000000180000001800000018000000180000001FFFF
     FFFF
   }
+  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   Position = poDefaultPosOnly
@@ -118,12 +119,12 @@ object Form1: TForm1
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Edit1
+    AnchorSideRight.Control = ComboBox2
     Left = 4
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 196
+    Width = 165
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -187,22 +188,6 @@ object Form1: TForm1
     OnClick = SpeedButton1Click
     ShowHint = True
     ParentShowHint = False
-  end
-  object Edit1: TEdit
-    AnchorSideRight.Control = SpeedButton1
-    AnchorSideBottom.Control = ComboBox1
-    AnchorSideBottom.Side = asrBottom
-    Left = 204
-    Height = 23
-    Hint = 'UID'
-    Top = 4
-    Width = 69
-    Anchors = [akTop, akRight]
-    BorderSpacing.Around = 4
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 1
-    Text = '00000000'
   end
   object Bevel1: TBevel
     AnchorSideLeft.Control = ComboBox1
@@ -916,5 +901,17 @@ object Form1: TForm1
     OnClick = SpeedButton3Click
     ShowHint = True
     ParentShowHint = False
+  end
+  object ComboBox2: TComboBox
+    AnchorSideRight.Control = SpeedButton1
+    Left = 173
+    Height = 27
+    Top = 4
+    Width = 100
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 4
+    ItemHeight = 0
+    Sorted = True
+    TabOrder = 1
   end
 end

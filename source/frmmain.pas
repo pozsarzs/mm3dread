@@ -17,7 +17,7 @@ unit frmmain;
 interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, untcommonproc;
+  StdCtrls, Buttons, ExtCtrls, untcommonproc, dos;
 type
   { TForm1 }
   TForm1 = class(TForm)
@@ -37,7 +37,7 @@ type
     Bevel8: TBevel;
     Bevel9: TBevel;
     ComboBox1: TComboBox;
-    Edit1: TEdit;
+    ComboBox2: TComboBox;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
@@ -76,6 +76,7 @@ type
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
     procedure ComboBox1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -88,7 +89,7 @@ type
   end;
 var
   Form1: TForm1;
-  cfgfile: string;
+  inifile: string;
 
 implementation
 
@@ -111,7 +112,8 @@ begin
   if ComboBox1.Items.Count>0 then
     for line:=0 to ComboBox1.Items.Count-1 do
       if ComboBox1.Items.Strings[line]=ComboBox1.Text then thereis:=true;
-  if not thereis then ComboBox1.Items.AddText(ComboBox1.Text);
+  if (not thereis) and (ComboBox1.Items.Count<64) then
+    ComboBox1.Items.AddText(ComboBox1.Text);
 end;
 
 // remove URL from list
@@ -144,19 +146,41 @@ begin
   end;
 end;
 
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var
+  b: byte;
+begin
+  for b:=0 to 63 do
+    untcommonproc.urls[b]:='';
+  if ComboBox1.Items.Count>0 then
+    for b:=0 to ComboBox1.Items.Count-1 do
+      untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
+  saveconfiguration(inifile);
+end;
+
 // events of Form1
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  b: byte;
 begin
   makeuserdir;
   getlang;
   getexepath;
   Form1.Caption:=APPNAME+' v.'+VERSION;
   // load configuration
-  cfgfile:=untcommonproc.userdir+DIR_CONFIG+'mm3dread.ini';
-//  if fsearch('mm3dread.ini',untcommonproc.userdir+DIR_CONFIG)<>''
-//    then loadconfig(cfgfile);
-  Edit1.Top:=ComboBox1.Top+((ComboBox1.Height-Edit1.Height) div 2);
-  SpeedButton1.Top:=Edit1.Top;
+  inifile:=untcommonproc.userdir+DIR_CONFIG+'mm3dread.ini';
+  if fsearch('mm3dread.ini',untcommonproc.userdir+DIR_CONFIG)<>''
+    then loadconfiguration(inifile);
+  for b:=0 to 63 do
+    if length(uids[b])>0 then
+      ComboBox2.Items.Add(untcommonproc.uids[b]);
+  for b:=0 to 63 do
+    if length(urls[b])>0 then
+      ComboBox1.Items.Add(untcommonproc.urls[b]);
+  // set position of speedbuttons
+  SpeedButton1.Top:=ComboBox1.Top+((ComboBox1.Height-SpeedButton1.Height) div 2);
+  SpeedButton2.Top:=SpeedButton1.Top;
+  SpeedButton3.Top:=SpeedButton1.Top;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
