@@ -27,7 +27,7 @@ uses
 var
   exepath: shortstring;
   lang: string[2];
-  uids: array[0..63] of string;
+  uids: string;
   urls: array[0..63] of string;
   userdir: string;
 {$IFDEF WIN32}
@@ -62,13 +62,13 @@ implementation
 // get data from controller device via http
 function getdatafromdevice(url, uid: string): boolean;
 var
-  value0, value1, value2, value3: TStrings;
+  value0, value1, value2, value3: TStringList;
 begin
   getdatafromdevice:=true;
-  value0:=TStrings.Create;
-  value1:=TStrings.Create;
-  value2:=TStrings.Create;
-  value3:=TStrings.Create;
+  value0:=TStringList.Create;
+  value1:=TStringList.Create;
+  value2:=TStringList.Create;
+  value3:=TStringList.Create;
   with THTTPSend.Create do
   begin
     if not HttpGetText(url+'?uid='+uid+'&value=0',value0) then getdatafromdevice:=false;
@@ -140,8 +140,7 @@ begin
   iif:=TIniFile.Create(filename);
   loadconfiguration:=true;
   try
-    for b:=0 to 63 do
-      uids[b]:=iif.ReadString('uids',inttostr(b+1),'');
+    uids:=iif.ReadString('uids','1','');
     for b:=0 to 63 do
       urls[b]:=iif.ReadString('urls',inttostr(b+1),'');
   except
@@ -160,8 +159,7 @@ begin
   iif:=TIniFile.Create(filename);
   saveconfiguration:=true;
   try
-    for b:=0 to 63 do
-      iif.WriteString('uids',inttostr(b+1),uids[b]);
+    iif.WriteString('uids','1',uids);
     for b:=0 to 63 do
       iif.WriteString('urls',inttostr(b+1),urls[b]);
   except

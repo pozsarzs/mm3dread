@@ -119,12 +119,12 @@ object Form1: TForm1
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = ComboBox2
+    AnchorSideRight.Control = Edit1
     Left = 4
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 165
+    Width = 193
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -300,7 +300,7 @@ object Form1: TForm1
     Caption = 'Inputs'
     ClientHeight = 50
     ClientWidth = 346
-    TabOrder = 2
+    TabOrder = 1
     object Bevel4: TBevel
       AnchorSideLeft.Control = GroupBox1
       AnchorSideTop.Control = GroupBox1
@@ -469,7 +469,7 @@ object Form1: TForm1
     Caption = 'Errors'
     ClientHeight = 50
     ClientWidth = 346
-    TabOrder = 3
+    TabOrder = 2
     object Bevel8: TBevel
       AnchorSideLeft.Control = GroupBox2
       AnchorSideTop.Control = GroupBox1
@@ -638,7 +638,7 @@ object Form1: TForm1
     Caption = 'Outputs'
     ClientHeight = 50
     ClientWidth = 346
-    TabOrder = 4
+    TabOrder = 3
     object Bevel12: TBevel
       AnchorSideLeft.Control = GroupBox3
       AnchorSideTop.Control = GroupBox1
@@ -902,16 +902,15 @@ object Form1: TForm1
     ShowHint = True
     ParentShowHint = False
   end
-  object ComboBox2: TComboBox
+  object Edit1: TEdit
     AnchorSideRight.Control = SpeedButton1
-    Left = 173
-    Height = 27
+    Left = 201
+    Height = 23
     Top = 4
-    Width = 100
+    Width = 72
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 4
-    ItemHeight = 0
-    Sorted = True
-    TabOrder = 1
+    TabOrder = 5
+    Text = '00000000'
   end
 end

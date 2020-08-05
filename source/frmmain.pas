@@ -37,7 +37,7 @@ type
     Bevel8: TBevel;
     Bevel9: TBevel;
     ComboBox1: TComboBox;
-    ComboBox2: TComboBox;
+    Edit1: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
@@ -99,7 +99,7 @@ implementation
 // read data from URL
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
-  getdatafromdevice(ComboBox1.Text, ComboBox2.Text);
+  getdatafromdevice(ComboBox1.Text, Edit1.Text);
 end;
 
 // add URL to list
@@ -159,9 +159,7 @@ begin
   inifile:=untcommonproc.userdir+DIR_CONFIG+'mm3dread.ini';
   if fsearch('mm3dread.ini',untcommonproc.userdir+DIR_CONFIG)<>''
     then loadconfiguration(inifile);
-  for b:=0 to 63 do
-    if length(uids[b])>0 then
-      ComboBox2.Items.Add(untcommonproc.uids[b]);
+  Edit1.Text:=untcommonproc.uids;
   for b:=0 to 63 do
     if length(urls[b])>0 then
       ComboBox1.Items.Add(untcommonproc.urls[b]);
@@ -169,6 +167,7 @@ begin
   SpeedButton1.Top:=ComboBox1.Top+((ComboBox1.Height-SpeedButton1.Height) div 2);
   SpeedButton2.Top:=SpeedButton1.Top;
   SpeedButton3.Top:=SpeedButton1.Top;
+  Edit1.Top:=SpeedButton1.Top;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
@@ -189,6 +188,7 @@ begin
   if ComboBox1.Items.Count>0 then
     for b:=0 to ComboBox1.Items.Count-1 do
       untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
+  untcommonproc.uids:=Edit1.Text;
   saveconfiguration(inifile);
 end;
 
