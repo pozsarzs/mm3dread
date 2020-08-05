@@ -99,7 +99,7 @@ implementation
 // read data from URL
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
-
+  getdatafromdevice(ComboBox1.Text, ComboBox2.Text);
 end;
 
 // add URL to list
@@ -146,18 +146,6 @@ begin
   end;
 end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-var
-  b: byte;
-begin
-  for b:=0 to 63 do
-    untcommonproc.urls[b]:='';
-  if ComboBox1.Items.Count>0 then
-    for b:=0 to ComboBox1.Items.Count-1 do
-      untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
-  saveconfiguration(inifile);
-end;
-
 // events of Form1
 procedure TForm1.FormCreate(Sender: TObject);
 var
@@ -190,6 +178,18 @@ begin
   Bevel4.Left:=(Form1.Width div 2)-114;
   Bevel8.Left:=Bevel4.Left;
   Bevel12.Left:=Bevel4.Left;
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var
+  b: byte;
+begin
+  for b:=0 to 63 do
+    untcommonproc.urls[b]:='';
+  if ComboBox1.Items.Count>0 then
+    for b:=0 to ComboBox1.Items.Count-1 do
+      untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
+  saveconfiguration(inifile);
 end;
 
 end.

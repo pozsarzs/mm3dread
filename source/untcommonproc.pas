@@ -22,7 +22,8 @@ uses
   LResources,
   SysUtils,
  {$IFDEF WIN32}Windows,{$ENDIF}
-  dos;
+  dos,
+  httpsend;
 var
   exepath: shortstring;
   lang: string[2];
@@ -37,6 +38,7 @@ const
 
 {$I config.pas}
 
+function getdatafromdevice(url, uid: string): boolean;
 function getexepath: string;
 function getlang: string;
 function loadconfiguration(filename: string): boolean;
@@ -52,8 +54,46 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: Integer; hToken: THandle;
 Resourcestring
   MESSAGE01='Cannot read configuration file!';
   MESSAGE02='Cannot write configuration file!';
+  MESSAGE03='Cannot read data from this URL!';
+  MESSAGE04='Cannot save data to cache directory!';
 
 implementation
+
+// get data from controller device via http
+function getdatafromdevice(url, uid: string): boolean;
+var
+  value0, value1, value2, value3: TStrings;
+begin
+  getdatafromdevice:=true;
+  value0:=TStrings.Create;
+  value1:=TStrings.Create;
+  value2:=TStrings.Create;
+  value3:=TStrings.Create;
+  with THTTPSend.Create do
+  begin
+    if not HttpGetText(url+'?uid='+uid+'&value=0',value0) then getdatafromdevice:=false;
+    if not HttpGetText(url+'?uid='+uid+'&value=1',value1) then getdatafromdevice:=false;
+    if not HttpGetText(url+'?uid='+uid+'&value=2',value2) then getdatafromdevice:=false;
+    if not HttpGetText(url+'?uid='+uid+'&value=3',value3) then getdatafromdevice:=false;
+    Free;
+  end;
+  if not getdatafromdevice then showmessage(MESSAGE03) else
+  begin
+    try
+      value0.SaveToFile(userdir+DIR_CACHE+'value0.txt');
+      value1.SaveToFile(userdir+DIR_CACHE+'value1.txt');
+      value2.SaveToFile(userdir+DIR_CACHE+'value2.txt');
+      value3.SaveToFile(userdir+DIR_CACHE+'value3.txt');
+    except
+      getdatafromdevice:=false;
+      showmessage(MESSAGE04);
+    end;
+  end;
+  value0.Free;
+  value1.Free;
+  value2.Free;
+  value3.Free;
+end;
 
 // get executable path
 function getexepath: string;
