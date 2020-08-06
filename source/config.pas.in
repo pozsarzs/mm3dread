@@ -29,11 +29,8 @@ const
   {$ENDIF}
   // user's folders
   {$IFDEF UNIX}
-    DIR_CACHE='/.cache/mm3dread/';
     DIR_CONFIG='/.config/mm3dread/';
   {$ENDIF}
   {$IFDEF WIN32}
-    DIR_CACHE='\AppData\Local\mm3dread\cache\';
-    DIR_CONFIG='\AppData\Local\mm3dread\config\';
+    DIR_CONFIG='\AppData\Local\mm3dread\';
   {$ENDIF}
-  TMPFILE=DIR_CACHE+'mm3dread.tmp';

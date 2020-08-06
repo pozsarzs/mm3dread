@@ -98,8 +98,79 @@ implementation
 
 // read data from URL
 procedure TForm1.SpeedButton1Click(Sender: TObject);
+var
+  f: single;
+  ledoff, ledon: TColor;
 begin
   getdatafromdevice(ComboBox1.Text, Edit1.Text);
+  // displays
+  f:=round(strtofloat(value3.Strings[2]));
+  if (f>=0) and (f<100)
+    then Label3.Caption:=floattostr(f)+' °C'
+    else Label3.Caption:='0 °C';
+  f:=round(strtofloat(value3.Strings[3]));
+  if (f>=0) and (f<101)
+    then Label4.Caption:=floattostr(f)+' %'
+    else Label4.Caption:='0 %';
+  // LEDs
+  ledoff:=clGreen;
+  ledon:=clLime;
+  Shape3.Hint:=value2.Strings[0];
+  if value3.Strings[4]='1'
+    then Shape3.Brush.Color:=ledon
+    else Shape3.Brush.Color:=ledoff;
+  Shape4.Hint:=value2.Strings[1];
+  if value3.Strings[5]='1'
+    then Shape4.Brush.Color:=ledon
+    else Shape4.Brush.Color:=ledoff;
+  Shape5.Hint:=value2.Strings[2];
+  if value3.Strings[6]='1'
+    then Shape5.Brush.Color:=ledon
+    else Shape5.Brush.Color:=ledoff;
+  Shape6.Hint:=value2.Strings[3];
+  if value3.Strings[7]='1'
+    then Shape6.Brush.Color:=ledon
+    else Shape6.Brush.Color:=ledoff;
+  ledoff:=clMaroon;
+  ledon:=clred;
+  Shape7.Hint:=value2.Strings[4];
+  if value3.Strings[12]='1'
+    then Shape7.Brush.Color:=ledon
+    else Shape7.Brush.Color:=ledoff;
+  Shape8.Hint:=value2.Strings[5];
+  if value3.Strings[13]='1'
+    then Shape8.Brush.Color:=ledon
+    else Shape8.Brush.Color:=ledoff;
+  Shape9.Hint:=value2.Strings[6];
+  if value3.Strings[14]='1'
+    then Shape9.Brush.Color:=ledon
+    else Shape9.Brush.Color:=ledoff;
+  Shape10.Hint:=value2.Strings[7];
+  if value3.Strings[15]='1'
+    then Shape10.Brush.Color:=ledon
+    else Shape10.Brush.Color:=ledoff;
+  ledoff:=clOlive;
+  ledon:=clYellow;
+  Shape11.Hint:=value2.Strings[8];
+  if value3.Strings[8]='1'
+    then Shape11.Brush.Color:=ledon
+    else Shape11.Brush.Color:=ledoff;
+  Shape12.Hint:=value2.Strings[9];
+  if value3.Strings[9]='1'
+    then Shape12.Brush.Color:=ledon
+    else Shape12.Brush.Color:=ledoff;
+  Shape13.Hint:=value2.Strings[10];
+  if value3.Strings[10]='1'
+    then Shape13.Brush.Color:=ledon
+    else Shape13.Brush.Color:=ledoff;
+  Shape14.Hint:=value2.Strings[11];
+  if value3.Strings[11]='1'
+    then Shape14.Brush.Color:=ledon
+    else Shape14.Brush.Color:=ledoff;
+  // Status bar
+  StatusBar1.Panels.Items[0].Text:=value0.Strings[0]+' '+value0.Strings[1];
+  StatusBar1.Panels.Items[1].Text:=value3.Strings[0]+' '+value3.Strings[1];
+  StatusBar1.Panels.Items[2].Text:=value1.Strings[3];
 end;
 
 // add URL to list
@@ -168,6 +239,10 @@ begin
   SpeedButton2.Top:=SpeedButton1.Top;
   SpeedButton3.Top:=SpeedButton1.Top;
   Edit1.Top:=SpeedButton1.Top;
+  untcommonproc.value0:=TStringList.Create;
+  untcommonproc.value1:=TStringList.Create;
+  untcommonproc.value2:=TStringList.Create;
+  untcommonproc.value3:=TStringList.Create;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
@@ -190,6 +265,10 @@ begin
       untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
   untcommonproc.uids:=Edit1.Text;
   saveconfiguration(inifile);
+  untcommonproc.value0.Free;
+  untcommonproc.value1.Free;
+  untcommonproc.value2.Free;
+  untcommonproc.value3.Free;
 end;
 
 end.

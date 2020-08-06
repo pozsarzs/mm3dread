@@ -9,6 +9,10 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
+#: tform1.edit1.hint
+msgid "UID"
+msgstr ""
+
 #: tform1.edit1.text
 msgid "00000000"
 msgstr ""
@@ -62,11 +66,11 @@ msgid "Relative humidity"
 msgstr ""
 
 #: tform1.label3.caption
-msgid "00 °C"
+msgid "0 °C"
 msgstr ""
 
 #: tform1.label4.caption
-msgid "000 %"
+msgid "0 %"
 msgstr ""
 
 #: tform1.label5.caption

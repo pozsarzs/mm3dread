@@ -25,6 +25,7 @@ uses
   dos,
   httpsend;
 var
+  value0, value1, value2, value3: TStringList;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -55,20 +56,17 @@ Resourcestring
   MESSAGE01='Cannot read configuration file!';
   MESSAGE02='Cannot write configuration file!';
   MESSAGE03='Cannot read data from this URL!';
-  MESSAGE04='Cannot save data to cache directory!';
 
 implementation
 
 // get data from controller device via http
 function getdatafromdevice(url, uid: string): boolean;
-var
-  value0, value1, value2, value3: TStringList;
 begin
   getdatafromdevice:=true;
-  value0:=TStringList.Create;
-  value1:=TStringList.Create;
-  value2:=TStringList.Create;
-  value3:=TStringList.Create;
+  value0.Clear;
+  value1.Clear;
+  value2.Clear;
+  value3.Clear;
   with THTTPSend.Create do
   begin
     if not HttpGetText(url+'?uid='+uid+'&value=0',value0) then getdatafromdevice:=false;
@@ -77,22 +75,6 @@ begin
     if not HttpGetText(url+'?uid='+uid+'&value=3',value3) then getdatafromdevice:=false;
     Free;
   end;
-  if not getdatafromdevice then showmessage(MESSAGE03) else
-  begin
-    try
-      value0.SaveToFile(userdir+DIR_CACHE+'value0.txt');
-      value1.SaveToFile(userdir+DIR_CACHE+'value1.txt');
-      value2.SaveToFile(userdir+DIR_CACHE+'value2.txt');
-      value3.SaveToFile(userdir+DIR_CACHE+'value3.txt');
-    except
-      getdatafromdevice:=false;
-      showmessage(MESSAGE04);
-    end;
-  end;
-  value0.Free;
-  value1.Free;
-  value2.Free;
-  value3.Free;
 end;
 
 // get executable path
@@ -190,7 +172,6 @@ begin
  {$IFDEF WIN32}
   userdir:=getuserprofile;
  {$ENDIF}
-  forcedirectories(userdir+DIR_CACHE);
   forcedirectories(userdir+DIR_CONFIG);
 end;
 
