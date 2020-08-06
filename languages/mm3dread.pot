@@ -1,20 +1,12 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: tform1.caption
-msgid "Form1"
-msgstr ""
-
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""
 
 #: tform1.edit1.hint
 msgid "UID"
-msgstr ""
-
-#: tform1.edit1.text
-msgid "00000000"
 msgstr ""
 
 #: tform1.groupbox1.caption
@@ -63,14 +55,6 @@ msgstr ""
 
 #: tform1.label2.caption
 msgid "Relative humidity"
-msgstr ""
-
-#: tform1.label3.caption
-msgid "0 °C"
-msgstr ""
-
-#: tform1.label4.caption
-msgid "0 %"
 msgstr ""
 
 #: tform1.label5.caption
