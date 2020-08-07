@@ -49,7 +49,7 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "mm3dread\licence.txt"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "mm3dread-0.1.2-win32.exe"
+OutFile "mm3dread-0.1-win32.exe"
 InstallDir "$PROGRAMFILES\MM3DRead"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
