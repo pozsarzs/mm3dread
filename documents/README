@@ -14,9 +14,10 @@ a. Visit homepage (see later) to download installer packages:
   ----------------------------------------
   (all)         FreeBSD                 mm3dread-0.1-FreeBSD-Port.shar
   (all)         (source code)           mm3dread-0.1.tar.gz
-  arm           linux                   mm3dread-0.1-arm.bin
-  arm           linux                   mm3dread-0.1-arm.tar.gz
-  arm           Raspbian GNU/Linux      mm3dread_0.1-1_arm.deb
+  arm           Android                 mm3dread-0.1.apk
+  armhf         linux                   mm3dread-0.1-arm.bin
+  armhf         linux                   mm3dread-0.1-arm.tar.gz
+  armhf         Raspbian GNU/Linux      mm3dread_0.1-1_arm.deb
   ix86          Debian GNU/Linux        mm3dread_0.1-1_i386.deb
   ix86          FreeBSD                 mm3dread-0.1.txz
   ix86          linux                   mm3dread-0.1-i586.bin

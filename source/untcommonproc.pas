@@ -97,6 +97,8 @@ begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
  {$ENDIF}
+ {$IFDEF ANDROID}
+ {$ENDIF}
  {$IFDEF WIN32}
   size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
   getmem(buffer, size);
@@ -167,6 +169,8 @@ begin
  {$IFDEF UNIX}
   userdir := getenvironmentvariable('HOME');
  {$ENDIF}
+ {$IFDEF ANDROID}
+  userdir := '/data/data/hu.szerafingomba.mm3dread';
  {$IFDEF WIN32}
   userdir := getuserprofile;
  {$ENDIF}

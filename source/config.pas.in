@@ -23,6 +23,9 @@ const
     {$IFDEF UNIX}
       MYI18PATH='/languages/';
     {$ENDIF}
+    {$IFDEF ANDROID}
+      MYI18PATH='/languages/';
+    {$ENDIF}
     {$IFDEF WIN32}
       MYI18PATH='\languages\';
     {$ENDIF}
@@ -30,6 +33,9 @@ const
   // user's folders
   {$IFDEF UNIX}
     DIR_CONFIG='/.config/mm3dread/';
+  {$ENDIF}
+  {$IFDEF ANDROID}
+    DIR_CONFIG='/config/';
   {$ENDIF}
   {$IFDEF WIN32}
     DIR_CONFIG='\AppData\Local\mm3dread\';
