@@ -171,6 +171,7 @@ begin
  {$ENDIF}
  {$IFDEF ANDROID}
   userdir := '/data/data/hu.szerafingomba.mm3dread';
+ {$ENDIF}
  {$IFDEF WIN32}
   userdir := getuserprofile;
  {$ENDIF}
