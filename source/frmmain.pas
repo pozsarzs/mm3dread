@@ -7,17 +7,20 @@
 
 //   This program is free software: you can redistribute it and/or modify it
 // under the terms of the European Union Public License 1.1 version.
-//
+
 //   This program is distributed in the hope that it will be useful, but WITHOUT
 // ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 // FOR A PARTICULAR PURPOSE.
 
 unit frmmain;
+
 {$mode objfpc}{$H+}
 interface
+
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, untcommonproc, dos;
+  StdCtrls, Buttons, ExtCtrls, untcommonproc;
+
 type
   { TForm1 }
   TForm1 = class(TForm)
@@ -87,9 +90,15 @@ type
   public
     { public declarations }
   end;
+
 var
   Form1: TForm1;
   inifile: string;
+
+resourcestring
+  MESSAGE01 = 'Cannot read configuration file!';
+  MESSAGE02 = 'Cannot write configuration file!';
+  MESSAGE03 = 'Cannot read data from this URL!';
 
 implementation
 
@@ -99,78 +108,133 @@ implementation
 // read data from URL
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 var
-  f: single;
+  good: boolean;
   ledoff, ledon: TColor;
+  t, rh: single;
 begin
-  getdatafromdevice(ComboBox1.Text, Edit1.Text);
-  // displays
-  f:=round(strtofloat(value3.Strings[2]));
-  if (f>=0) and (f<100)
-    then Label3.Caption:=floattostr(f)+' °C'
-    else Label3.Caption:='0 °C';
-  f:=round(strtofloat(value3.Strings[3]));
-  if (f>=0) and (f<101)
-    then Label4.Caption:=floattostr(f)+' %'
-    else Label4.Caption:='0 %';
-  // LEDs
-  ledoff:=clGreen;
-  ledon:=clLime;
-  Shape3.Hint:=value2.Strings[0];
-  if value3.Strings[4]='1'
-    then Shape3.Brush.Color:=ledon
-    else Shape3.Brush.Color:=ledoff;
-  Shape4.Hint:=value2.Strings[1];
-  if value3.Strings[5]='1'
-    then Shape4.Brush.Color:=ledon
-    else Shape4.Brush.Color:=ledoff;
-  Shape5.Hint:=value2.Strings[2];
-  if value3.Strings[6]='1'
-    then Shape5.Brush.Color:=ledon
-    else Shape5.Brush.Color:=ledoff;
-  Shape6.Hint:=value2.Strings[3];
-  if value3.Strings[7]='1'
-    then Shape6.Brush.Color:=ledon
-    else Shape6.Brush.Color:=ledoff;
-  ledoff:=clMaroon;
-  ledon:=clred;
-  Shape7.Hint:=value2.Strings[4];
-  if value3.Strings[12]='1'
-    then Shape7.Brush.Color:=ledon
-    else Shape7.Brush.Color:=ledoff;
-  Shape8.Hint:=value2.Strings[5];
-  if value3.Strings[13]='1'
-    then Shape8.Brush.Color:=ledon
-    else Shape8.Brush.Color:=ledoff;
-  Shape9.Hint:=value2.Strings[6];
-  if value3.Strings[14]='1'
-    then Shape9.Brush.Color:=ledon
-    else Shape9.Brush.Color:=ledoff;
-  Shape10.Hint:=value2.Strings[7];
-  if value3.Strings[15]='1'
-    then Shape10.Brush.Color:=ledon
-    else Shape10.Brush.Color:=ledoff;
-  ledoff:=clOlive;
-  ledon:=clYellow;
-  Shape11.Hint:=value2.Strings[8];
-  if value3.Strings[8]='1'
-    then Shape11.Brush.Color:=ledon
-    else Shape11.Brush.Color:=ledoff;
-  Shape12.Hint:=value2.Strings[9];
-  if value3.Strings[9]='1'
-    then Shape12.Brush.Color:=ledon
-    else Shape12.Brush.Color:=ledoff;
-  Shape13.Hint:=value2.Strings[10];
-  if value3.Strings[10]='1'
-    then Shape13.Brush.Color:=ledon
-    else Shape13.Brush.Color:=ledoff;
-  Shape14.Hint:=value2.Strings[11];
-  if value3.Strings[11]='1'
-    then Shape14.Brush.Color:=ledon
-    else Shape14.Brush.Color:=ledoff;
-  // Status bar
-  StatusBar1.Panels.Items[0].Text:=value0.Strings[0]+' '+value0.Strings[1];
-  StatusBar1.Panels.Items[1].Text:=value3.Strings[0]+' '+value3.Strings[1];
-  StatusBar1.Panels.Items[2].Text:=value1.Strings[3];
+  good := getdatafromdevice(ComboBox1.Text, Edit1.Text);
+  if good then
+    if (value0.Count < 2) or (value1.Count < 4) or (value2.Count < 12) or
+      (value3.Count < 16) then
+      good := False
+    else
+      good := True;
+  if good then
+    good := trystrtofloat(value3.Strings[2], t);
+  if good then
+    good := trystrtofloat(value3.Strings[3], rh);
+  if not good then
+  begin
+    // displays
+    Label3.Caption := '0 °C';
+    Label4.Caption := '0 %';
+    // LEDs
+    ledoff := clGreen;
+    Shape3.Brush.Color := ledoff;
+    Shape4.Brush.Color := ledoff;
+    Shape5.Brush.Color := ledoff;
+    Shape6.Brush.Color := ledoff;
+    ledoff := clMaroon;
+    Shape7.Brush.Color := ledoff;
+    Shape8.Brush.Color := ledoff;
+    Shape9.Brush.Color := ledoff;
+    Shape10.Brush.Color := ledoff;
+    ledoff := clOlive;
+    Shape11.Brush.Color := ledoff;
+    Shape12.Brush.Color := ledoff;
+    Shape13.Brush.Color := ledoff;
+    Shape14.Brush.Color := ledoff;
+    // Status bar
+    StatusBar1.Panels.Items[0].Text := '';
+    StatusBar1.Panels.Items[1].Text := '';
+    Form1.Caption := APPNAME + ' v.' + VERSION;
+    ShowMessage(MESSAGE03);
+  end
+  else
+  begin
+    // displays
+    t := round(t);
+    if (t >= 0) and (t < 100) then
+      Label3.Caption := floattostr(t) + ' °C'
+    else
+      Label3.Caption := '0 °C';
+    rh := round(rh);
+    if (rh >= 0) and (rh < 101) then
+      Label4.Caption := floattostr(rh) + ' %'
+    else
+      Label4.Caption := '0 %';
+    // LEDs
+    ledoff := clGreen;
+    ledon := clLime;
+    Shape3.Hint := value2.Strings[0];
+    if value3.Strings[4] = '1' then
+      Shape3.Brush.Color := ledon
+    else
+      Shape3.Brush.Color := ledoff;
+    Shape4.Hint := value2.Strings[1];
+    if value3.Strings[5] = '1' then
+      Shape4.Brush.Color := ledon
+    else
+      Shape4.Brush.Color := ledoff;
+    Shape5.Hint := value2.Strings[2];
+    if value3.Strings[6] = '1' then
+      Shape5.Brush.Color := ledon
+    else
+      Shape5.Brush.Color := ledoff;
+    Shape6.Hint := value2.Strings[3];
+    if value3.Strings[7] = '1' then
+      Shape6.Brush.Color := ledon
+    else
+      Shape6.Brush.Color := ledoff;
+    ledoff := clMaroon;
+    ledon := clred;
+    Shape7.Hint := value2.Strings[4];
+    if value3.Strings[12] = '1' then
+      Shape7.Brush.Color := ledon
+    else
+      Shape7.Brush.Color := ledoff;
+    Shape8.Hint := value2.Strings[5];
+    if value3.Strings[13] = '1' then
+      Shape8.Brush.Color := ledon
+    else
+      Shape8.Brush.Color := ledoff;
+    Shape9.Hint := value2.Strings[6];
+    if value3.Strings[14] = '1' then
+      Shape9.Brush.Color := ledon
+    else
+      Shape9.Brush.Color := ledoff;
+    Shape10.Hint := value2.Strings[7];
+    if value3.Strings[15] = '1' then
+      Shape10.Brush.Color := ledon
+    else
+      Shape10.Brush.Color := ledoff;
+    ledoff := clOlive;
+    ledon := clYellow;
+    Shape11.Hint := value2.Strings[8];
+    if value3.Strings[8] = '1' then
+      Shape11.Brush.Color := ledon
+    else
+      Shape11.Brush.Color := ledoff;
+    Shape12.Hint := value2.Strings[9];
+    if value3.Strings[9] = '1' then
+      Shape12.Brush.Color := ledon
+    else
+      Shape12.Brush.Color := ledoff;
+    Shape13.Hint := value2.Strings[10];
+    if value3.Strings[10] = '1' then
+      Shape13.Brush.Color := ledon
+    else
+      Shape13.Brush.Color := ledoff;
+    Shape14.Hint := value2.Strings[11];
+    if value3.Strings[11] = '1' then
+      Shape14.Brush.Color := ledon
+    else
+      Shape14.Brush.Color := ledoff;
+    // Status bar
+    StatusBar1.Panels.Items[0].Text := value0.Strings[0] + ' ' + value0.Strings[1];
+    StatusBar1.Panels.Items[1].Text := value3.Strings[0] + ' ' + value3.Strings[1];
+    Form1.Caption := APPNAME + ' v.' + VERSION + ' | ' + value1.Strings[3];
+  end;
 end;
 
 // add URL to list
@@ -179,11 +243,12 @@ var
   line: byte;
   thereis: boolean;
 begin
-  thereis:=false;
-  if ComboBox1.Items.Count>0 then
-    for line:=0 to ComboBox1.Items.Count-1 do
-      if ComboBox1.Items.Strings[line]=ComboBox1.Text then thereis:=true;
-  if (not thereis) and (ComboBox1.Items.Count<64) then
+  thereis := False;
+  if ComboBox1.Items.Count > 0 then
+    for line := 0 to ComboBox1.Items.Count - 1 do
+      if ComboBox1.Items.Strings[line] = ComboBox1.Text then
+        thereis := True;
+  if (not thereis) and (ComboBox1.Items.Count < 64) then
     ComboBox1.Items.AddText(ComboBox1.Text);
 end;
 
@@ -192,10 +257,11 @@ procedure TForm1.SpeedButton3Click(Sender: TObject);
 var
   line: byte;
 begin
-  if ComboBox1.Items.Count>0 then
+  if ComboBox1.Items.Count > 0 then
   begin
-    for line:=0 to ComboBox1.Items.Count-1 do
-      if ComboBox1.Items.Strings[line]=ComboBox1.Text then break;
+    for line := 0 to ComboBox1.Items.Count - 1 do
+      if ComboBox1.Items.Strings[line] = ComboBox1.Text then
+        break;
     ComboBox1.Items.Delete(line);
     ComboBox1Change(Sender);
   end;
@@ -204,16 +270,17 @@ end;
 // event of ComboBox1
 procedure TForm1.ComboBox1Change(Sender: TObject);
 begin
-  if length(ComboBox1.Text)=0 then
+  if length(ComboBox1.Text) = 0 then
   begin
-    SpeedButton1.Enabled:=false;
-    SpeedButton2.Enabled:=false;
-    SpeedButton3.Enabled:=false;
-  end else
+    SpeedButton1.Enabled := False;
+    SpeedButton2.Enabled := False;
+    SpeedButton3.Enabled := False;
+  end
+  else
   begin
-    SpeedButton1.Enabled:=true;
-    SpeedButton2.Enabled:=true;
-    SpeedButton3.Enabled:=true;
+    SpeedButton1.Enabled := True;
+    SpeedButton2.Enabled := True;
+    SpeedButton3.Enabled := True;
   end;
 end;
 
@@ -225,46 +292,48 @@ begin
   makeuserdir;
   getlang;
   getexepath;
-  Form1.Caption:=APPNAME+' v.'+VERSION;
+  Form1.Caption := APPNAME + ' v.' + VERSION;
   // load configuration
-  inifile:=untcommonproc.userdir+DIR_CONFIG+'mm3dread.ini';
-  if fsearch('mm3dread.ini',untcommonproc.userdir+DIR_CONFIG)<>''
-    then loadconfiguration(inifile);
-  Edit1.Text:=untcommonproc.uids;
-  for b:=0 to 63 do
-    if length(urls[b])>0 then
+  inifile := untcommonproc.userdir + DIR_CONFIG + 'mm3dread.ini';
+  if FileSearch('mm3dread.ini', untcommonproc.userdir + DIR_CONFIG) <> '' then
+    if not loadconfiguration(inifile) then
+      ShowMessage(MESSAGE01);
+  Edit1.Text := untcommonproc.uids;
+  for b := 0 to 63 do
+    if length(urls[b]) > 0 then
       ComboBox1.Items.Add(untcommonproc.urls[b]);
   // set position of speedbuttons
-  SpeedButton1.Top:=ComboBox1.Top+((ComboBox1.Height-SpeedButton1.Height) div 2);
-  SpeedButton2.Top:=SpeedButton1.Top;
-  SpeedButton3.Top:=SpeedButton1.Top;
-  Edit1.Top:=SpeedButton1.Top;
-  untcommonproc.value0:=TStringList.Create;
-  untcommonproc.value1:=TStringList.Create;
-  untcommonproc.value2:=TStringList.Create;
-  untcommonproc.value3:=TStringList.Create;
+  SpeedButton1.Top := ComboBox1.Top + ((ComboBox1.Height - SpeedButton1.Height) div 2);
+  SpeedButton2.Top := SpeedButton1.Top;
+  SpeedButton3.Top := SpeedButton1.Top;
+  Edit1.Top := SpeedButton1.Top;
+  untcommonproc.value0 := TStringList.Create;
+  untcommonproc.value1 := TStringList.Create;
+  untcommonproc.value2 := TStringList.Create;
+  untcommonproc.value3 := TStringList.Create;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  Bevel2.Width:=(Form1.Width div 2)-6;
-  Bevel3.Width:=Bevel2.Width;
-  Bevel4.Left:=(Form1.Width div 2)-114;
-  Bevel8.Left:=Bevel4.Left;
-  Bevel12.Left:=Bevel4.Left;
+  Bevel2.Width := (Form1.Width div 2) - 6;
+  Bevel3.Width := Bevel2.Width;
+  Bevel4.Left := (Form1.Width div 2) - 114;
+  Bevel8.Left := Bevel4.Left;
+  Bevel12.Left := Bevel4.Left;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 var
   b: byte;
 begin
-  for b:=0 to 63 do
-    untcommonproc.urls[b]:='';
-  if ComboBox1.Items.Count>0 then
-    for b:=0 to ComboBox1.Items.Count-1 do
-      untcommonproc.urls[b]:=ComboBox1.Items.Strings[b];
-  untcommonproc.uids:=Edit1.Text;
-  saveconfiguration(inifile);
+  for b := 0 to 63 do
+    untcommonproc.urls[b] := '';
+  if ComboBox1.Items.Count > 0 then
+    for b := 0 to ComboBox1.Items.Count - 1 do
+      untcommonproc.urls[b] := ComboBox1.Items.Strings[b];
+  untcommonproc.uids := Edit1.Text;
+  if not saveconfiguration(inifile) then
+    ShowMessage(MESSAGE02);
   untcommonproc.value0.Free;
   untcommonproc.value1.Free;
   untcommonproc.value2.Free;

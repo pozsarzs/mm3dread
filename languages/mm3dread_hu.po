@@ -1,0 +1,34 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tform1.groupbox1.caption
+msgid "Inputs"
+msgstr "Bemenetek"
+
+#: tform1.groupbox2.caption
+msgid "Errors"
+msgstr "Hibajelzők"
+
+#: tform1.groupbox3.caption
+msgid "Outputs"
+msgstr "Kimenetek"
+
+#: tform1.label1.caption
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+#: tform1.label2.caption
+msgid "Relative humidity"
+msgstr "Relatív páratartalom"
+
+#: tform1.speedbutton1.hint
+msgid "Read data from device"
+msgstr "Adatok olvasása a berendezésről"
+
+#: tform1.speedbutton2.hint
+msgid "Add URL to list"
+msgstr "URL hozzáadása a listához"
+
+#: tform1.speedbutton3.hint
+msgid "Remove URL from list"
+msgstr "URL eltávolítása a listáról"
