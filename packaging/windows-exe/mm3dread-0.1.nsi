@@ -63,7 +63,6 @@ Section "Main files" SEC01
   SetOutPath "$INSTDIR\documents"
   SetOverwrite try
   File "mm3dread\documents\authors.txt"
-  File "mm3dread\documents\changelog.txt"
   File "mm3dread\documents\install.txt"
   File "mm3dread\documents\readme.txt"
   File "mm3dread\documents\version.txt"
@@ -125,7 +124,6 @@ Section Uninstall
   Delete "$INSTDIR\languages\hu\mm3dread.po"
   Delete "$INSTDIR\languages\hu\mm3dread.mo"
   Delete "$INSTDIR\documents\authors.txt"
-  Delete "$INSTDIR\documents\changelog.txt"
   Delete "$INSTDIR\documents\install.txt"
   Delete "$INSTDIR\documents\readme.txt"
   Delete "$INSTDIR\documents\version.txt"

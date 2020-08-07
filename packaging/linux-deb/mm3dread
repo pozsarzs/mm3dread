@@ -1,0 +1,2 @@
+?package(mm3dread):needs="X11" section="Applications/Network/Monitoring"\
+  title="MM3DRead" command="mm3dread"

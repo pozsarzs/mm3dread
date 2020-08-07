@@ -1,0 +1,66 @@
+Installation instruction for source and binary tar.gz package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. FreeBSD
+~~~~~~~~~~
+a. From source package
+
+   Build and install:
+   $ tar -xzf mm3dread-0.1.tar.gz
+   $ ./configure
+   $ make
+   # make install
+
+   Remove:
+   # make uninstall
+
+2. Linux
+~~~~~~~~
+a. From source package
+
+   Build and install:
+   $ tar -xzf mm3dread-0.1.tar.gz
+   $ ./configure
+   $ make
+   # make install
+
+   Remove:
+   # make uninstall
+
+b. From binary package
+
+   Install:
+   # tar -xzf mm3dread-0.1-i586.tar.gz
+   # cd mm3dread
+   # ./create_links
+            or
+   # tar -xzf mm3dread-0.1-i586.tar.gz
+   # cd mm3dread
+   # ./install
+
+   Remove:
+   # cd mm3dread
+   # ./remove_links
+   # cd ..
+   # rm -r mm3dread
+            or
+   # /opt/mm3dread/uninstall
+
+3. Windows
+~~~~~~~~~~
+a. From source package
+
+   Build and install:
+   > tar -xzf mm3dread-0.1.tar.gz
+   > build.bat
+   > build.bat install
+
+   Remove:
+   > build.bat uninstall
+
+c. From binary package
+
+   > unzip mm3dread-0.1-win32.zip
+
+---------------------------------------------------------------------------------
+ MM3DRead * Copyright (C) 2020 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>

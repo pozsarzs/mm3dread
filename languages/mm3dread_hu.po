@@ -1,34 +1,91 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tform1.combobox1.hint
+msgid "URL"
+msgstr ""
+
+#: tform1.edit1.hint
+msgid "UID"
+msgstr ""
+
 #: tform1.groupbox1.caption
 msgid "Inputs"
-msgstr "Bemenetek"
+msgstr ""
 
 #: tform1.groupbox2.caption
 msgid "Errors"
-msgstr "Hibajelzők"
+msgstr ""
 
 #: tform1.groupbox3.caption
 msgid "Outputs"
-msgstr "Kimenetek"
+msgstr ""
 
 #: tform1.label1.caption
 msgid "Temperature"
-msgstr "Hőmérséklet"
+msgstr ""
+
+#: tform1.label10.caption
+msgid "ERR2"
+msgstr ""
+
+#: tform1.label11.caption
+msgid "ERR3"
+msgstr ""
+
+#: tform1.label12.caption
+msgid "ERR4"
+msgstr ""
+
+#: tform1.label13.caption
+msgid "OUT1"
+msgstr ""
+
+#: tform1.label14.caption
+msgid "OUT2"
+msgstr ""
+
+#: tform1.label15.caption
+msgid "OUT3"
+msgstr ""
+
+#: tform1.label16.caption
+msgid "OUT4"
+msgstr ""
 
 #: tform1.label2.caption
 msgid "Relative humidity"
-msgstr "Relatív páratartalom"
+msgstr ""
+
+#: tform1.label5.caption
+msgid "IN1"
+msgstr ""
+
+#: tform1.label6.caption
+msgid "IN2"
+msgstr ""
+
+#: tform1.label7.caption
+msgid "IN3"
+msgstr ""
+
+#: tform1.label8.caption
+msgid "IN4"
+msgstr ""
+
+#: tform1.label9.caption
+msgid "ERR1"
+msgstr ""
 
 #: tform1.speedbutton1.hint
 msgid "Read data from device"
-msgstr "Adatok olvasása a berendezésről"
+msgstr ""
 
 #: tform1.speedbutton2.hint
 msgid "Add URL to list"
-msgstr "URL hozzáadása a listához"
+msgstr ""
 
 #: tform1.speedbutton3.hint
 msgid "Remove URL from list"
-msgstr "URL eltávolítása a listáról"
+msgstr ""
+
