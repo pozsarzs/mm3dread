@@ -11,19 +11,19 @@ msgstr ""
 
 #: tform1.groupbox1.caption
 msgid "Inputs"
-msgstr ""
+msgstr "Bemenet"
 
 #: tform1.groupbox2.caption
 msgid "Errors"
-msgstr ""
+msgstr "Hibajelző"
 
 #: tform1.groupbox3.caption
 msgid "Outputs"
-msgstr ""
+msgstr "Kimenet"
 
 #: tform1.label1.caption
 msgid "Temperature"
-msgstr ""
+msgstr "Hőmérséklet"
 
 #: tform1.label10.caption
 msgid "ERR2"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: tform1.label2.caption
 msgid "Relative humidity"
-msgstr ""
+msgstr "Relatív páratartalom"
 
 #: tform1.label5.caption
 msgid "IN1"
@@ -79,13 +79,13 @@ msgstr ""
 
 #: tform1.speedbutton1.hint
 msgid "Read data from device"
-msgstr ""
+msgstr "Adatok olvasása a berendezésről"
 
 #: tform1.speedbutton2.hint
 msgid "Add URL to list"
-msgstr ""
+msgstr "URL hozzáadása a listához"
 
 #: tform1.speedbutton3.hint
 msgid "Remove URL from list"
-msgstr ""
+msgstr "URL eltávolítása a listából"
 
