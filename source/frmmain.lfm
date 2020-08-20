@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 297
+  Left = 552
   Height = 329
-  Top = 162
-  Width = 358
+  Top = 278
+  Width = 306
   Caption = 'Form1'
   ClientHeight = 329
-  ClientWidth = 358
+  ClientWidth = 306
   Constraints.MinHeight = 329
   Constraints.MinWidth = 306
   Icon.Data = {
@@ -124,7 +124,7 @@ object Form1: TForm1
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 193
+    Width = 141
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -140,7 +140,7 @@ object Form1: TForm1
   object SpeedButton1: TSpeedButton
     AnchorSideRight.Control = SpeedButton2
     AnchorSideBottom.Side = asrCenter
-    Left = 277
+    Left = 225
     Height = 23
     Hint = 'Read data from device'
     Top = 4
@@ -198,7 +198,7 @@ object Form1: TForm1
     Left = 4
     Height = 13
     Top = 35
-    Width = 350
+    Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 2
     Shape = bsTopLine
@@ -294,17 +294,17 @@ object Form1: TForm1
     Left = 4
     Height = 65
     Top = 104
-    Width = 350
+    Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Inputs'
     ClientHeight = 50
-    ClientWidth = 346
+    ClientWidth = 294
     TabOrder = 2
     object Bevel4: TBevel
       AnchorSideLeft.Control = GroupBox1
       AnchorSideTop.Control = GroupBox1
-      Left = 30
+      Left = 23
       Height = 18
       Top = 8
       Width = 30
@@ -319,7 +319,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel4
       AnchorSideBottom.Side = asrBottom
-      Left = 32
+      Left = 25
       Height = 14
       Top = 10
       Width = 26
@@ -333,7 +333,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel4
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel4
-      Left = 36
+      Left = 29
       Height = 13
       Top = 32
       Width = 18
@@ -345,7 +345,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel4
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox1
-      Left = 92
+      Left = 85
       Height = 18
       Top = 8
       Width = 30
@@ -359,7 +359,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel5
       AnchorSideBottom.Side = asrBottom
-      Left = 94
+      Left = 87
       Height = 14
       Top = 10
       Width = 26
@@ -373,7 +373,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel5
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel5
-      Left = 98
+      Left = 91
       Height = 13
       Top = 32
       Width = 18
@@ -385,7 +385,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel5
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox1
-      Left = 154
+      Left = 147
       Height = 18
       Top = 8
       Width = 30
@@ -399,7 +399,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel6
       AnchorSideBottom.Side = asrBottom
-      Left = 156
+      Left = 149
       Height = 14
       Top = 10
       Width = 26
@@ -413,7 +413,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel6
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel6
-      Left = 160
+      Left = 153
       Height = 13
       Top = 32
       Width = 18
@@ -425,7 +425,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel6
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox1
-      Left = 216
+      Left = 209
       Height = 18
       Top = 8
       Width = 30
@@ -439,7 +439,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel7
       AnchorSideBottom.Side = asrBottom
-      Left = 218
+      Left = 211
       Height = 14
       Top = 10
       Width = 26
@@ -453,7 +453,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel7
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel7
-      Left = 222
+      Left = 215
       Height = 13
       Top = 32
       Width = 18
@@ -471,17 +471,17 @@ object Form1: TForm1
     Left = 4
     Height = 65
     Top = 173
-    Width = 350
+    Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Errors'
     ClientHeight = 50
-    ClientWidth = 346
+    ClientWidth = 294
     TabOrder = 3
     object Bevel8: TBevel
       AnchorSideLeft.Control = GroupBox2
       AnchorSideTop.Control = GroupBox2
-      Left = 30
+      Left = 23
       Height = 18
       Top = 8
       Width = 30
@@ -496,7 +496,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel8
       AnchorSideBottom.Side = asrBottom
-      Left = 32
+      Left = 25
       Height = 14
       Top = 10
       Width = 26
@@ -510,7 +510,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel8
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel8
-      Left = 31
+      Left = 24
       Height = 13
       Top = 32
       Width = 28
@@ -522,7 +522,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel8
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox2
-      Left = 92
+      Left = 85
       Height = 18
       Top = 8
       Width = 30
@@ -536,7 +536,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel9
       AnchorSideBottom.Side = asrBottom
-      Left = 94
+      Left = 87
       Height = 14
       Top = 10
       Width = 26
@@ -550,7 +550,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel9
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel9
-      Left = 93
+      Left = 86
       Height = 13
       Top = 32
       Width = 28
@@ -562,7 +562,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel9
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox2
-      Left = 154
+      Left = 147
       Height = 18
       Top = 8
       Width = 30
@@ -576,7 +576,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel10
       AnchorSideBottom.Side = asrBottom
-      Left = 156
+      Left = 149
       Height = 14
       Top = 10
       Width = 26
@@ -590,7 +590,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel10
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel10
-      Left = 155
+      Left = 148
       Height = 13
       Top = 32
       Width = 28
@@ -602,7 +602,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel10
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox2
-      Left = 216
+      Left = 209
       Height = 18
       Top = 8
       Width = 30
@@ -616,7 +616,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel11
       AnchorSideBottom.Side = asrBottom
-      Left = 218
+      Left = 211
       Height = 14
       Top = 10
       Width = 26
@@ -630,7 +630,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel11
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel11
-      Left = 217
+      Left = 210
       Height = 13
       Top = 32
       Width = 28
@@ -648,17 +648,17 @@ object Form1: TForm1
     Left = 4
     Height = 65
     Top = 242
-    Width = 350
+    Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Outputs'
     ClientHeight = 50
-    ClientWidth = 346
+    ClientWidth = 294
     TabOrder = 4
     object Bevel12: TBevel
       AnchorSideLeft.Control = GroupBox3
       AnchorSideTop.Control = GroupBox3
-      Left = 30
+      Left = 23
       Height = 18
       Top = 8
       Width = 30
@@ -673,7 +673,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel12
       AnchorSideBottom.Side = asrBottom
-      Left = 32
+      Left = 25
       Height = 14
       Top = 10
       Width = 26
@@ -687,7 +687,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel12
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel12
-      Left = 30
+      Left = 23
       Height = 13
       Top = 32
       Width = 31
@@ -699,7 +699,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel12
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox3
-      Left = 92
+      Left = 85
       Height = 18
       Top = 8
       Width = 30
@@ -713,7 +713,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel13
       AnchorSideBottom.Side = asrBottom
-      Left = 94
+      Left = 87
       Height = 14
       Top = 10
       Width = 26
@@ -727,7 +727,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel13
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel13
-      Left = 92
+      Left = 85
       Height = 13
       Top = 32
       Width = 31
@@ -739,7 +739,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel13
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox3
-      Left = 154
+      Left = 147
       Height = 18
       Top = 8
       Width = 30
@@ -753,7 +753,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel14
       AnchorSideBottom.Side = asrBottom
-      Left = 156
+      Left = 149
       Height = 14
       Top = 10
       Width = 26
@@ -767,7 +767,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel14
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel14
-      Left = 154
+      Left = 147
       Height = 13
       Top = 32
       Width = 31
@@ -779,7 +779,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel14
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox3
-      Left = 216
+      Left = 209
       Height = 18
       Top = 8
       Width = 30
@@ -793,7 +793,7 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Bevel15
       AnchorSideBottom.Side = asrBottom
-      Left = 218
+      Left = 211
       Height = 14
       Top = 10
       Width = 26
@@ -807,7 +807,7 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel15
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel15
-      Left = 216
+      Left = 209
       Height = 13
       Top = 32
       Width = 31
@@ -820,7 +820,7 @@ object Form1: TForm1
     Left = 0
     Height = 17
     Top = 312
-    Width = 358
+    Width = 306
     Panels = <    
       item
         Alignment = taCenter
@@ -837,7 +837,7 @@ object Form1: TForm1
   end
   object SpeedButton2: TSpeedButton
     AnchorSideRight.Control = SpeedButton3
-    Left = 304
+    Left = 252
     Height = 22
     Hint = 'Add URL to list'
     Top = 4
@@ -889,7 +889,7 @@ object Form1: TForm1
   object SpeedButton3: TSpeedButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 331
+    Left = 279
     Height = 22
     Hint = 'Remove URL from list'
     Top = 4
@@ -940,7 +940,7 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     AnchorSideRight.Control = SpeedButton1
-    Left = 201
+    Left = 149
     Height = 23
     Hint = 'UID'
     Top = 4
