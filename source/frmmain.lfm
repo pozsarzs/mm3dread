@@ -480,7 +480,7 @@ object Form1: TForm1
     TabOrder = 3
     object Bevel8: TBevel
       AnchorSideLeft.Control = GroupBox2
-      AnchorSideTop.Control = GroupBox1
+      AnchorSideTop.Control = GroupBox2
       Left = 30
       Height = 18
       Top = 8
@@ -657,7 +657,7 @@ object Form1: TForm1
     TabOrder = 4
     object Bevel12: TBevel
       AnchorSideLeft.Control = GroupBox3
-      AnchorSideTop.Control = GroupBox1
+      AnchorSideTop.Control = GroupBox3
       Left = 30
       Height = 18
       Top = 8
