@@ -3,7 +3,7 @@ License: EUPL
 Name: mm3dread
 Packager: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
 Release: 1
-Summary: Environment characteristics editor
+Summary: Status reader program for MM3D device
 Url: http://www.szerafingomba.hu/softwares/
 Vendor: Pozsar Zsolt
 Version: 0.1
