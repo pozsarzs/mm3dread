@@ -38,7 +38,7 @@ if not exist "%PPC%" ( echo Error: compiler not found! & goto end )
 echo Check Lazarus IDE folder: %LAZ%
 if not exist "%LAZ%" ( set /p LAZ=Enter component units folder: )
 if not exist "%LAZ%" ( echo Error: Folder not found! & goto end )
-set FPFLAG1=-TWin32 -MObjFPC -Scgi -O1 -ve -WG
+set FPFLAG1=-TWin32 -MObjFPC -Scgi -O1 -ve -WG -Fu.\synapse
 set FPFLAG2=-Fu%LAZ%\lcl\units\%ARCH%-%OS% -Fu%LAZ%\lcl\units\%ARCH%-%OS%\%OS%
 set FPFLAG3=-Fu%LAZ%\components\lazutils\lib\%ARCH%-%OS% -Fu. -Fu.\lib\%ARCH%-%OS%
 set FPFLAG4=-FE.\lib\%ARCH%-%OS% -dLCL -dLCLwin32 -Fu%LAZ%\packager\units\%ARCH%-%OS%

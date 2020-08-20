@@ -85,7 +85,7 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnResize = FormResize
   Position = poDefaultPosOnly
-  LCLVersion = '1.6.2.0'
+  LCLVersion = '1.8.4.0'
   object Shape2: TShape
     AnchorSideLeft.Control = Bevel3
     AnchorSideTop.Control = Bevel3
@@ -95,7 +95,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 183
     Height = 57
-    Top = 41
+    Top = 37
     Width = 169
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 2
@@ -110,7 +110,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 6
     Height = 57
-    Top = 41
+    Top = 37
     Width = 169
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 2
@@ -121,7 +121,7 @@ object Form1: TForm1
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Edit1
     Left = 4
-    Height = 27
+    Height = 23
     Hint = 'URL'
     Top = 4
     Width = 141
@@ -130,7 +130,7 @@ object Form1: TForm1
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
     BorderSpacing.Around = 4
     CharCase = ecLowerCase
-    ItemHeight = 0
+    ItemHeight = 15
     OnChange = ComboBox1Change
     ParentShowHint = False
     ShowHint = True
@@ -197,7 +197,7 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 13
-    Top = 35
+    Top = 31
     Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 2
@@ -209,7 +209,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     Left = 4
     Height = 61
-    Top = 39
+    Top = 35
     Width = 173
     BorderSpacing.Top = 8
   end
@@ -222,7 +222,7 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 181
     Height = 61
-    Top = 39
+    Top = 35
     Width = 173
     BorderSpacing.Left = 4
     BorderSpacing.Top = 8
@@ -231,9 +231,9 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel2
     AnchorSideTop.Control = Bevel2
     Left = 8
-    Height = 13
-    Top = 43
-    Width = 72
+    Height = 15
+    Top = 39
+    Width = 68
     BorderSpacing.Around = 4
     Caption = 'Temperature'
     Font.Color = clAqua
@@ -244,9 +244,9 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel3
     AnchorSideTop.Control = Bevel3
     Left = 185
-    Height = 13
-    Top = 43
-    Width = 96
+    Height = 15
+    Top = 39
+    Width = 92
     BorderSpacing.Around = 4
     Caption = 'Relative humidity'
     Font.Color = clAqua
@@ -257,10 +257,10 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel2
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Bevel2
-    Left = 67
-    Height = 24
-    Top = 62
-    Width = 46
+    Left = 76
+    Height = 20
+    Top = 58
+    Width = 28
     BorderSpacing.Top = 23
     Caption = '0 °C'
     Font.Color = clAqua
@@ -273,10 +273,10 @@ object Form1: TForm1
     AnchorSideLeft.Control = Bevel3
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Bevel3
-    Left = 247
-    Height = 24
-    Top = 62
-    Width = 41
+    Left = 254
+    Height = 20
+    Top = 58
+    Width = 26
     BorderSpacing.Top = 23
     Caption = '0 %'
     Font.Color = clAqua
@@ -293,12 +293,12 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
-    Top = 104
+    Top = 100
     Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Inputs'
-    ClientHeight = 50
+    ClientHeight = 45
     ClientWidth = 294
     TabOrder = 2
     object Bevel4: TBevel
@@ -334,7 +334,7 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel4
       Left = 29
-      Height = 13
+      Height = 15
       Top = 32
       Width = 18
       BorderSpacing.Top = 24
@@ -374,7 +374,7 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel5
       Left = 91
-      Height = 13
+      Height = 15
       Top = 32
       Width = 18
       BorderSpacing.Top = 24
@@ -414,7 +414,7 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel6
       Left = 153
-      Height = 13
+      Height = 15
       Top = 32
       Width = 18
       BorderSpacing.Top = 24
@@ -454,7 +454,7 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel7
       Left = 215
-      Height = 13
+      Height = 15
       Top = 32
       Width = 18
       BorderSpacing.Top = 24
@@ -470,12 +470,12 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
-    Top = 173
+    Top = 169
     Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Errors'
-    ClientHeight = 50
+    ClientHeight = 45
     ClientWidth = 294
     TabOrder = 3
     object Bevel8: TBevel
@@ -510,10 +510,10 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel8
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel8
-      Left = 24
-      Height = 13
+      Left = 25
+      Height = 15
       Top = 32
-      Width = 28
+      Width = 26
       BorderSpacing.Top = 24
       Caption = 'ERR1'
       ParentColor = False
@@ -550,10 +550,10 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel9
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel9
-      Left = 86
-      Height = 13
+      Left = 87
+      Height = 15
       Top = 32
-      Width = 28
+      Width = 26
       BorderSpacing.Top = 24
       Caption = 'ERR2'
       ParentColor = False
@@ -590,10 +590,10 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel10
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel10
-      Left = 148
-      Height = 13
+      Left = 149
+      Height = 15
       Top = 32
-      Width = 28
+      Width = 26
       BorderSpacing.Top = 24
       Caption = 'ERR3'
       ParentColor = False
@@ -630,10 +630,10 @@ object Form1: TForm1
       AnchorSideLeft.Control = Bevel11
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel11
-      Left = 210
-      Height = 13
+      Left = 211
+      Height = 15
       Top = 32
-      Width = 28
+      Width = 26
       BorderSpacing.Top = 24
       Caption = 'ERR4'
       ParentColor = False
@@ -647,12 +647,12 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 65
-    Top = 242
+    Top = 238
     Width = 298
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Outputs'
-    ClientHeight = 50
+    ClientHeight = 45
     ClientWidth = 294
     TabOrder = 4
     object Bevel12: TBevel
@@ -688,9 +688,9 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel12
       Left = 23
-      Height = 13
+      Height = 15
       Top = 32
-      Width = 31
+      Width = 30
       BorderSpacing.Top = 24
       Caption = 'OUT1'
       ParentColor = False
@@ -728,9 +728,9 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel13
       Left = 85
-      Height = 13
+      Height = 15
       Top = 32
-      Width = 31
+      Width = 30
       BorderSpacing.Top = 24
       Caption = 'OUT2'
       ParentColor = False
@@ -768,9 +768,9 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel14
       Left = 147
-      Height = 13
+      Height = 15
       Top = 32
-      Width = 31
+      Width = 30
       BorderSpacing.Top = 24
       Caption = 'OUT3'
       ParentColor = False
@@ -808,9 +808,9 @@ object Form1: TForm1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = Bevel15
       Left = 209
-      Height = 13
+      Height = 15
       Top = 32
-      Width = 31
+      Width = 30
       BorderSpacing.Top = 24
       Caption = 'OUT4'
       ParentColor = False
@@ -818,8 +818,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 17
-    Top = 312
+    Height = 23
+    Top = 306
     Width = 306
     Panels = <    
       item

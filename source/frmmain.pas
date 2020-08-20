@@ -111,6 +111,7 @@ var
   good: boolean;
   ledoff, ledon: TColor;
   t, rh: single;
+  format: Tformatsettings;
 begin
   good := getdatafromdevice(ComboBox1.Text, Edit1.Text);
   if good then
@@ -120,9 +121,11 @@ begin
     else
       good := True;
   if good then
-    good := trystrtofloat(value3.Strings[2], t);
-  if good then
-    good := trystrtofloat(value3.Strings[3], rh);
+    begin
+      format.DecimalSeparator:='.';
+      trystrtofloat(value3.Strings[2], t, format);
+      trystrtofloat(value3.Strings[3], rh, format);
+    end;
   if not good then
   begin
     // displays
