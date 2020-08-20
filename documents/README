@@ -14,7 +14,7 @@ a. Visit homepage (see later) to download installer packages:
   ----------------------------------------
   (all)         FreeBSD                 mm3dread-0.1-FreeBSD-Port.shar
   (all)         (source code)           mm3dread-0.1.tar.gz
-  arm           Android                 mm3dread-0.1.apk
+  armeabi       Android                 mm3dread-0.1.apk
   armhf         linux                   mm3dread-0.1-arm.bin
   armhf         linux                   mm3dread-0.1-arm.tar.gz
   armhf         Raspbian GNU/Linux      mm3dread_0.1-1_arm.deb
@@ -30,7 +30,7 @@ a. Visit homepage (see later) to download installer packages:
 
 b. Download from Github
 
-  $ git clone https://github.com/pozsarzs/mm3d-read.git
+  $ git clone https://github.com/pozsarzs/mm3dread.git
 
 c. Download from Debian repository
 

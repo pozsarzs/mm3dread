@@ -147,7 +147,7 @@ begin
     // Status bar
     StatusBar1.Panels.Items[0].Text := '';
     StatusBar1.Panels.Items[1].Text := '';
-    Form1.Caption := APPNAME + ' v.' + VERSION;
+    Form1.Caption := APPNAME + ' v' + VERSION;
     ShowMessage(MESSAGE03);
   end
   else
@@ -233,7 +233,7 @@ begin
     // Status bar
     StatusBar1.Panels.Items[0].Text := value0.Strings[0] + ' ' + value0.Strings[1];
     StatusBar1.Panels.Items[1].Text := value3.Strings[0] + ' ' + value3.Strings[1];
-    Form1.Caption := APPNAME + ' v.' + VERSION + ' | ' + value1.Strings[3];
+    Form1.Caption := APPNAME + ' v' + VERSION + ' | ' + value1.Strings[3];
   end;
 end;
 
@@ -292,7 +292,7 @@ begin
   makeuserdir;
   getlang;
   getexepath;
-  Form1.Caption := APPNAME + ' v.' + VERSION;
+  Form1.Caption := APPNAME + ' v' + VERSION;
   // load configuration
   inifile := untcommonproc.userdir + DIR_CONFIG + 'mm3dread.ini';
   if FileSearch('mm3dread.ini', untcommonproc.userdir + DIR_CONFIG) <> '' then
