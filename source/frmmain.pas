@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
 { | MM3DRead v0.1 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@.szerafingomba.hu>         | }
+{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
