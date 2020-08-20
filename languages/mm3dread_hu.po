@@ -1,6 +1,18 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: frmmain.message01
+msgid "Cannot read configuration file!"
+msgstr "A beállításfájl nem olvasható!"
+
+#: frmmain.message02
+msgid "Cannot write configuration file!"
+msgstr "A beállításfájl nem írható!"
+
+#: frmmain.message03
+msgid "Cannot read data from this URL!"
+msgstr "Nem tudok adatokat beolvasni erről az URL-ről!"
+
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""

@@ -1,6 +1,18 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: frmmain.message01
+msgid "Cannot read configuration file!"
+msgstr ""
+
+#: frmmain.message02
+msgid "Cannot write configuration file!"
+msgstr ""
+
+#: frmmain.message03
+msgid "Cannot read data from this URL!"
+msgstr ""
+
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""
