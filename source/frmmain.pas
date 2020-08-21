@@ -108,10 +108,10 @@ implementation
 // read data from URL
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 var
+  format: TFormatSettings;
   good: boolean;
   ledoff, ledon: TColor;
   t, rh: single;
-  format: Tformatsettings;
 begin
   good := getdatafromdevice(ComboBox1.Text, Edit1.Text);
   if good then
