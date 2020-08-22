@@ -10,8 +10,8 @@ software via network.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 a. Visit homepage (see later) to download installer packages:
 
-  architecture  operation system  filename
-  ----------------------------------------
+  architecture  operation system        filename
+  --------------------------------------------------------------------
   (all)         FreeBSD                 mm3dread-0.1-FreeBSD-Port.shar
   (all)         (source code)           mm3dread-0.1.tar.gz
   armeabi       Android                 mm3dread-0.1.apk
