@@ -1,13 +1,9 @@
-b156e2641658f9fc80d089dcfd0e935d  DEBIAN/control
-c8e1dce84079f819eac628d7fe6c36cd  DEBIAN/md5sums
-f97b9d784b2c5167d4824075590f8b1c  DEBIAN/postinst
-61112d592d808ffdd1b21cc706ba309f  DEBIAN/prerm
 8a4166897560a2671a1422b4f0a87839  usr/bin/mm3dread
 c9c034d706ac5b20907ce7d6560a1212  usr/share/applications/mm3dread.desktop
 4994f4cacf022e01ffda29f5627f7ab5  usr/share/doc/mm3dread/AUTHORS
 c8fb9e658b6ad2a4084068e005ae214d  usr/share/doc/mm3dread/changelog.Debian.gz
 f4492b6846071e6b1fe1f801cb82f9b2  usr/share/doc/mm3dread/copyright
-ead14f38060979d18abff8306c9f17f2  usr/share/doc/mm3dread/README
+df12d64b741480b740c4680d7f379699  usr/share/doc/mm3dread/README
 e95b902a1037d461ca0e94f2bddf7a28  usr/share/doc/mm3dread/VERSION
 83814f0e0ec13843b801501aff86c00b  usr/share/locale/hu/LC_MESSAGES/mm3dread.mo
 200dfc3585b90084bb7574c4755b5997  usr/share/man/man1/mm3dread.1.gz
