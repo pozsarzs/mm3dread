@@ -1,20 +1,6 @@
 Installation instruction for source and binary tar.gz package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. FreeBSD
-~~~~~~~~~~
-a. From source package
-
-   Build and install:
-   $ tar -xzf mm3dread-0.1.tar.gz
-   $ ./configure
-   $ make
-   # make install
-
-   Remove:
-   # make uninstall
-
-2. Linux
+1. Linux
 ~~~~~~~~
 a. From source package
 
@@ -46,7 +32,7 @@ b. From binary package
             or
    # /opt/mm3dread/uninstall
 
-3. Windows
+2. Windows
 ~~~~~~~~~~
 a. From source package
 
