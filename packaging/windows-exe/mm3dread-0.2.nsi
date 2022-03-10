@@ -29,7 +29,7 @@
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\mm3dread.exe"
-!define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\documents\README"
+!define MUI_FINISHPAGE_SHOWreadme.txt "$INSTDIR\documents\readme.txt"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
@@ -43,8 +43,8 @@
 !insertmacro MUI_LANGUAGE "Hungarian"
 
 ; License Language
-LicenseLangString MUILicense ${LANG_ENGLISH} "mm3dread\LICENCE"
-LicenseLangString MUILicense ${LANG_HUNGARIAN} "mm3dread\LICENCE"
+LicenseLangString MUILicense ${LANG_ENGLISH} "mm3dread\licence.txt"
+LicenseLangString MUILicense ${LANG_HUNGARIAN} "mm3dread\licence.txt"
 
 ; MUI end ------
 
@@ -62,13 +62,15 @@ FunctionEnd
 Section "Main files" SEC01
   SetOutPath "$INSTDIR\documents"
   SetOverwrite try
-  File "mm3dread\documents\authors"
-  File "mm3dread\documents\install"
-  File "mm3dread\documents\readme"
-  File "mm3dread\documents\version"
+  File "mm3dread\documents\authors.txt"
+  File "mm3dread\documents\install.txt"
+  File "mm3dread\documents\readme.txt"
+  File "mm3dread\documents\version.txt"
+  File "mm3dread\documents\copyright.txt"
+  File "mm3dread\documents\changelog.txt"
   SetOutPath "$INSTDIR"
   File "mm3dread\mm3dread.exe"
-  File "mm3dread\licence"
+  File "mm3dread\licence.txt"
   File "mm3dread\readme.md"
   CreateShortCut "$DESKTOP\MM3DRead.lnk" "$INSTDIR\mm3dread.exe"
   CreateDirectory "$SMPROGRAMS\MM3DRead"
@@ -118,15 +120,17 @@ SectionEnd
 Section Uninstall
   Delete "$INSTDIR\uninst.exe"
   Delete "$INSTDIR\readme.md"
-  Delete "$INSTDIR\licence"
+  Delete "$INSTDIR\licence.txt"
   Delete "$INSTDIR\mm3dread.exe"
   Delete "$INSTDIR\languages\mm3dread.pot"
   Delete "$INSTDIR\languages\hu\mm3dread.po"
   Delete "$INSTDIR\languages\hu\mm3dread.mo"
-  Delete "$INSTDIR\documents\authors"
-  Delete "$INSTDIR\documents\install"
-  Delete "$INSTDIR\documents\readme"
-  Delete "$INSTDIR\documents\version"
+  Delete "$INSTDIR\documents\copyright.txt"
+  Delete "$INSTDIR\documents\changelog.txt"
+  Delete "$INSTDIR\documents\authors.txt"
+  Delete "$INSTDIR\documents\install.txt"
+  Delete "$INSTDIR\documents\readme.txt"
+  Delete "$INSTDIR\documents\version.txt"
 
   Delete "$SMPROGRAMS\MM3DRead\Uninstall.lnk"
   Delete "$DESKTOP\MM3DRead.lnk"

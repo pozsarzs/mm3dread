@@ -14,7 +14,7 @@
 
 const
   APPNAME='MM3DRead';
-  VERSION='@version@';
+  VERSION='0.2';
   // install path
   INSTPATH='@prefix@/';
   {$IFDEF UseFHS}

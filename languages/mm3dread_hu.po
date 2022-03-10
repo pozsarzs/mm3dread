@@ -41,34 +41,6 @@ msgstr "Kimenetek"
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
-#: tform1.label10.caption
-msgid "Switching box protection error"
-msgstr "Kapcsolódoboz túláramvédelmi hiba"
-
-#: tform1.label11.caption
-msgid "Low water pressure"
-msgstr "Alacsony víznyomás"
-
-#: tform1.label12.caption
-msgid "Bad humidity"
-msgstr "Rossz páratartalom"
-
-#: tform1.label13.caption
-msgid "Heating"
-msgstr "Fűtés"
-
-#: tform1.label14.caption
-msgid "Lighting"
-msgstr "Világítás"
-
-#: tform1.label15.caption
-msgid "Ventilating"
-msgstr "Szellőztetés"
-
-#: tform1.label16.caption
-msgid "Humidifying"
-msgstr "Párásítás"
-
 #: tform1.label2.caption
 msgid "Relative humidity"
 msgstr "Relatív páratartalom"
@@ -80,26 +52,6 @@ msgstr ""
 #: tform1.label4.caption
 msgid "0 %"
 msgstr ""
-
-#: tform1.label5.caption
-msgid "Switching box manual control"
-msgstr "Kapcsolószekrény kézi vezérlés"
-
-#: tform1.label6.caption
-msgid "Switching box overcurrent protection"
-msgstr "Kapcsolószekrény túláramvédelem"
-
-#: tform1.label7.caption
-msgid "Water pressure detector"
-msgstr "Víznyomás érzékelő"
-
-#: tform1.label8.caption
-msgid "Door and window opening detector"
-msgstr "Ablak- és ajtónyitás érzékelő"
-
-#: tform1.label9.caption
-msgid "Bad temperature"
-msgstr "Rossz hőmérséklet"
 
 #: tform1.speedbutton1.hint
 msgid "Read data from device"
