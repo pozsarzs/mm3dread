@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="9"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
       <Title Value="MM3DRead"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <XPManifest>
-        <TextName Value="PozsarZsolt.MM3D.MM3DRead"/>
-        <TextDesc Value="Status reader for MM3D device"/>
-      </XPManifest>
       <Icon Value="0"/>
     </General>
     <i18n>
@@ -20,8 +16,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="1"/>
-      <StringTable Comments="Status reader program for MM3D device" CompanyName="Pozsar Zsolt" LegalCopyright="(C) 2020 Pozsar Zsolt" ProductName="MM3DRead" ProductVersion="0.1"/>
+      <MinorVersionNr Value="2"/>
+      <StringTable Comments="Status reader program for MM3D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2022 Pozsár Zsolt" ProductName="MM3DRead" ProductVersion="0.2"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

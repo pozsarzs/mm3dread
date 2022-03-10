@@ -1,8 +1,8 @@
 Package: mm3dread
-Version: 0.1
+Version: 0.2
 Section: misc
 Priority: extra
-Architecture: i386
+Architecture: amd64
 Installed-Size: 4216 kB
 Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
 Depends: libc6, libglib2.0-0, libgtk2.0-0

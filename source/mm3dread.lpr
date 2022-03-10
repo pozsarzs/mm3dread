@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.1 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
-{ | mm3dread.lpr                                                             | }
+{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | mm5dread.lpr                                                             | }
 { | Project file                                                             | }
 { +--------------------------------------------------------------------------+ }
 

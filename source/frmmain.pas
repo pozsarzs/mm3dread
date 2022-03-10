@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.1 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
+{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -105,7 +105,7 @@ implementation
 {$R *.lfm}
 { TForm1 }
 
-// read data from URL
+// read data from device
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 var
   format: TFormatSettings;
@@ -121,11 +121,11 @@ begin
     else
       good := True;
   if good then
-    begin
-      format.DecimalSeparator:='.';
-      trystrtofloat(value3.Strings[2], t, format);
-      trystrtofloat(value3.Strings[3], rh, format);
-    end;
+  begin
+    format.DecimalSeparator := '.';
+    trystrtofloat(value3.Strings[2], t, format);
+    trystrtofloat(value3.Strings[3], rh, format);
+  end;
   if not good then
   begin
     // displays
@@ -147,7 +147,7 @@ begin
     Shape12.Brush.Color := ledoff;
     Shape13.Brush.Color := ledoff;
     Shape14.Brush.Color := ledoff;
-    // Status bar
+    // status bar
     StatusBar1.Panels.Items[0].Text := '';
     StatusBar1.Panels.Items[1].Text := '';
     Form1.Caption := APPNAME + ' v' + VERSION;
@@ -155,6 +155,19 @@ begin
   end
   else
   begin
+    // labels
+    Label5.Caption := value2.Strings[0];
+    Label6.Caption := value2.Strings[1];
+    Label7.Caption := value2.Strings[2];
+    Label8.Caption := value2.Strings[3];
+    Label9.Caption := value2.Strings[4];
+    Label10.Caption := value2.Strings[5];
+    Label11.Caption := value2.Strings[6];
+    Label12.Caption := value2.Strings[7];
+    Label13.Caption := value2.Strings[8];
+    Label14.Caption := value2.Strings[9];
+    Label15.Caption := value2.Strings[10];
+    Label16.Caption := value2.Strings[11];
     // displays
     t := round(t);
     if (t >= 0) and (t < 100) then
@@ -169,71 +182,59 @@ begin
     // LEDs
     ledoff := clGreen;
     ledon := clLime;
-    Shape3.Hint := value2.Strings[0];
     if value3.Strings[4] = '1' then
       Shape3.Brush.Color := ledon
     else
       Shape3.Brush.Color := ledoff;
-    Shape4.Hint := value2.Strings[1];
     if value3.Strings[5] = '1' then
       Shape4.Brush.Color := ledon
     else
       Shape4.Brush.Color := ledoff;
-    Shape5.Hint := value2.Strings[2];
     if value3.Strings[6] = '1' then
       Shape5.Brush.Color := ledon
     else
       Shape5.Brush.Color := ledoff;
-    Shape6.Hint := value2.Strings[3];
     if value3.Strings[7] = '1' then
       Shape6.Brush.Color := ledon
     else
       Shape6.Brush.Color := ledoff;
     ledoff := clMaroon;
     ledon := clred;
-    Shape7.Hint := value2.Strings[4];
     if value3.Strings[12] = '1' then
       Shape7.Brush.Color := ledon
     else
       Shape7.Brush.Color := ledoff;
-    Shape8.Hint := value2.Strings[5];
     if value3.Strings[13] = '1' then
       Shape8.Brush.Color := ledon
     else
       Shape8.Brush.Color := ledoff;
-    Shape9.Hint := value2.Strings[6];
     if value3.Strings[14] = '1' then
       Shape9.Brush.Color := ledon
     else
       Shape9.Brush.Color := ledoff;
-    Shape10.Hint := value2.Strings[7];
     if value3.Strings[15] = '1' then
       Shape10.Brush.Color := ledon
     else
       Shape10.Brush.Color := ledoff;
     ledoff := clOlive;
     ledon := clYellow;
-    Shape11.Hint := value2.Strings[8];
     if value3.Strings[8] = '1' then
       Shape11.Brush.Color := ledon
     else
       Shape11.Brush.Color := ledoff;
-    Shape12.Hint := value2.Strings[9];
     if value3.Strings[9] = '1' then
       Shape12.Brush.Color := ledon
     else
       Shape12.Brush.Color := ledoff;
-    Shape13.Hint := value2.Strings[10];
     if value3.Strings[10] = '1' then
       Shape13.Brush.Color := ledon
     else
       Shape13.Brush.Color := ledoff;
-    Shape14.Hint := value2.Strings[11];
     if value3.Strings[11] = '1' then
       Shape14.Brush.Color := ledon
     else
       Shape14.Brush.Color := ledoff;
-    // Status bar
+    // status bar
     StatusBar1.Panels.Items[0].Text := value0.Strings[0] + ' ' + value0.Strings[1];
     StatusBar1.Panels.Items[1].Text := value3.Strings[0] + ' ' + value3.Strings[1];
     Form1.Caption := APPNAME + ' v' + VERSION + ' | ' + value1.Strings[3];
@@ -320,9 +321,6 @@ procedure TForm1.FormResize(Sender: TObject);
 begin
   Bevel2.Width := (Form1.Width div 2) - 6;
   Bevel3.Width := Bevel2.Width;
-  Bevel4.Left := (Form1.Width div 2) - 114;
-  Bevel8.Left := Bevel4.Left;
-  Bevel12.Left := Bevel4.Left;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);

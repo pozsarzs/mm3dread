@@ -13,12 +13,20 @@ msgstr ""
 msgid "Cannot read data from this URL!"
 msgstr ""
 
+#: tform1.caption
+msgid "Form1"
+msgstr ""
+
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""
 
 #: tform1.edit1.hint
 msgid "UID"
+msgstr ""
+
+#: tform1.edit1.text
+msgid "00000000"
 msgstr ""
 
 #: tform1.groupbox1.caption
@@ -38,55 +46,63 @@ msgid "Temperature"
 msgstr ""
 
 #: tform1.label10.caption
-msgid "ERR2"
+msgid "Switching box protection error"
 msgstr ""
 
 #: tform1.label11.caption
-msgid "ERR3"
+msgid "Low water pressure"
 msgstr ""
 
 #: tform1.label12.caption
-msgid "ERR4"
+msgid "Bad humidity"
 msgstr ""
 
 #: tform1.label13.caption
-msgid "OUT1"
+msgid "Heating"
 msgstr ""
 
 #: tform1.label14.caption
-msgid "OUT2"
+msgid "Lighting"
 msgstr ""
 
 #: tform1.label15.caption
-msgid "OUT3"
+msgid "Ventilating"
 msgstr ""
 
 #: tform1.label16.caption
-msgid "OUT4"
+msgid "Humidifying"
 msgstr ""
 
 #: tform1.label2.caption
 msgid "Relative humidity"
 msgstr ""
 
+#: tform1.label3.caption
+msgid "0 °C"
+msgstr ""
+
+#: tform1.label4.caption
+msgid "0 %"
+msgstr ""
+
 #: tform1.label5.caption
-msgid "IN1"
+msgid "Switching box manual control"
 msgstr ""
 
 #: tform1.label6.caption
-msgid "IN2"
+msgid "Switching box overcurrent protection"
 msgstr ""
 
 #: tform1.label7.caption
-msgid "IN3"
+msgid "Water pressure detector"
 msgstr ""
 
 #: tform1.label8.caption
-msgid "IN4"
+msgid "Door and window opening detector"
 msgstr ""
 
 #: tform1.label9.caption
-msgid "ERR1"
+msgid "Bad temperature"
 msgstr ""
 
 #: tform1.speedbutton1.hint

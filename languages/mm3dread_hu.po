@@ -21,73 +21,85 @@ msgstr ""
 msgid "UID"
 msgstr ""
 
+#: tform1.edit1.text
+msgid "00000000"
+msgstr ""
+
 #: tform1.groupbox1.caption
 msgid "Inputs"
-msgstr "Bemenet"
+msgstr "Bemenetek"
 
 #: tform1.groupbox2.caption
 msgid "Errors"
-msgstr "Hibajelző"
+msgstr "Hibajelzők"
 
 #: tform1.groupbox3.caption
 msgid "Outputs"
-msgstr "Kimenet"
+msgstr "Kimenetek"
 
 #: tform1.label1.caption
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
 #: tform1.label10.caption
-msgid "ERR2"
-msgstr ""
+msgid "Switching box protection error"
+msgstr "Kapcsolódoboz túláramvédelmi hiba"
 
 #: tform1.label11.caption
-msgid "ERR3"
-msgstr ""
+msgid "Low water pressure"
+msgstr "Alacsony víznyomás"
 
 #: tform1.label12.caption
-msgid "ERR4"
-msgstr ""
+msgid "Bad humidity"
+msgstr "Rossz páratartalom"
 
 #: tform1.label13.caption
-msgid "OUT1"
-msgstr ""
+msgid "Heating"
+msgstr "Fűtés"
 
 #: tform1.label14.caption
-msgid "OUT2"
-msgstr ""
+msgid "Lighting"
+msgstr "Világítás"
 
 #: tform1.label15.caption
-msgid "OUT3"
-msgstr ""
+msgid "Ventilating"
+msgstr "Szellőztetés"
 
 #: tform1.label16.caption
-msgid "OUT4"
-msgstr ""
+msgid "Humidifying"
+msgstr "Párásítás"
 
 #: tform1.label2.caption
 msgid "Relative humidity"
 msgstr "Relatív páratartalom"
 
-#: tform1.label5.caption
-msgid "IN1"
+#: tform1.label3.caption
+msgid "0 °C"
 msgstr ""
+
+#: tform1.label4.caption
+msgid "0 %"
+msgstr ""
+
+#: tform1.label5.caption
+msgid "Switching box manual control"
+msgstr "Kapcsolószekrény kézi vezérlés"
 
 #: tform1.label6.caption
-msgid "IN2"
-msgstr ""
+msgid "Switching box overcurrent protection"
+msgstr "Kapcsolószekrény túláramvédelem"
 
 #: tform1.label7.caption
-msgid "IN3"
-msgstr ""
+msgid "Water pressure detector"
+msgstr "Víznyomás érzékelő"
 
 #: tform1.label8.caption
-msgid "IN4"
-msgstr ""
+msgid "Door and window opening detector"
+msgstr "Ablak- és ajtónyitás érzékelő"
 
 #: tform1.label9.caption
-msgid "ERR1"
-msgstr ""
+msgid "Bad temperature"
+msgstr "Rossz hőmérséklet"
 
 #: tform1.speedbutton1.hint
 msgid "Read data from device"

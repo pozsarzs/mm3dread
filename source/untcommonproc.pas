@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.1 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
+{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
@@ -31,13 +31,10 @@ var
 const
   CSIDL_PROFILE = 40;
   SHGFP_TYPE_CURRENT = 0;
+
 {$ENDIF}
 
-{$IFDEF FHS}
-  {$I config.pas}
-{$ELSE}
-  {$I config.pas.in}
-{$ENDIF}
+{$I config.pas}
 
 function getdatafromdevice(url, uid: string): boolean;
 function getexepath: string;
@@ -57,21 +54,21 @@ implementation
 // get data from controller device via http
 function getdatafromdevice(url, uid: string): boolean;
 begin
-  getdatafromdevice := True;
+  Result := True;
   value0.Clear;
   value1.Clear;
   value2.Clear;
   value3.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '?uid=' + uid + '&value=0', value0) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=1', value1) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=2', value2) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=3', value3) then
-      getdatafromdevice := False;
+    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=0', value0) then
+      Result := False;
+    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=1', value1) then
+      Result := False;
+    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=2', value2) then
+      Result := False;
+    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=3', value3) then
+      Result := False;
     Free;
   end;
 end;
@@ -82,7 +79,7 @@ var
   p: shortstring;
 begin
   exepath := ExtractFilePath(ParamStr(0));
-  getexepath := exepath;
+  Result := exepath;
 end;
 
 // get system language
@@ -111,8 +108,8 @@ begin
  {$ENDIF}
   if length(s) = 0 then
     s := 'en';
-  lang := lowercase(s[1..2]);
-  getlang := lang;
+    lang := lowercase(s[1..2]);
+  Result := lang;
 end;
 
 // load configuration
@@ -122,13 +119,13 @@ var
   iif: TINIFile;
 begin
   iif := TIniFile.Create(filename);
-  loadconfiguration := True;
+  Result := True;
   try
     uids := iif.ReadString('uids', '1', '');
     for b := 0 to 63 do
       urls[b] := iif.ReadString('urls', IntToStr(b + 1), '');
   except
-    loadconfiguration := False;
+    Result := False;
   end;
   iif.Free;
 end;
@@ -140,13 +137,13 @@ var
   iif: TINIFile;
 begin
   iif := TIniFile.Create(filename);
-  saveconfiguration := True;
+  Result := True;
   try
     iif.WriteString('uids', '1', uids);
     for b := 0 to 63 do
       iif.WriteString('urls', IntToStr(b + 1), urls[b]);
   except
-    saveconfiguration := False;
+    Result := False;
   end;
   iif.Free;
 end;
@@ -163,6 +160,7 @@ var
     ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
     Result := string(PChar(@buffer));
   end;
+
 {$ENDIF}
 
 begin
