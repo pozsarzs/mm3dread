@@ -5,7 +5,7 @@ Installation instruction for source and binary tar.gz package
 a. From source package
 
    Build and install:
-   $ tar -xzf mm3dread-0.2.tar.gz
+   $ tar -xzf mm3dread-0.3.tar.gz
    $ ./configure
    $ make
    # make install
@@ -16,11 +16,11 @@ a. From source package
 b. From binary package
 
    Install:
-   # tar -xzf mm3dread-0.2-i586.tar.gz
+   # tar -xzf mm3dread-0.3-i586.tar.gz
    # cd mm3dread
    # ./create_links
             or
-   # tar -xzf mm3dread-0.2-i586.tar.gz
+   # tar -xzf mm3dread-0.3-i586.tar.gz
    # cd mm3dread
    # ./install
 
@@ -37,7 +37,7 @@ b. From binary package
 a. From source package
 
    Build and install:
-   > tar -xzf mm3dread-0.2.tar.gz
+   > tar -xzf mm3dread-0.3.tar.gz
    > build.bat
    > build.bat install
 
@@ -46,7 +46,7 @@ a. From source package
 
 c. From binary package
 
-   > unzip mm3dread-0.2-win32.zip
+   > unzip mm3dread-0.3-win32.zip
 
 ---------------------------------------------------------------------------------
- MM3DRead * Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>
+ MM3DRead * Copyright (C) 2020-2023 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>

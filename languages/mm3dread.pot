@@ -13,6 +13,22 @@ msgstr ""
 msgid "Cannot read data from this URL!"
 msgstr ""
 
+#: frmmain.message04
+msgid "Hyphae"
+msgstr ""
+
+#: frmmain.message05
+msgid "Mushroom"
+msgstr ""
+
+#: frmmain.message06
+msgid "The number of received data is wrong!"
+msgstr ""
+
+#: frmmain.message07
+msgid "Use v0.6 or higher software on the controller!"
+msgstr ""
+
 #: tform1.caption
 msgid "Form1"
 msgstr ""
@@ -41,8 +57,40 @@ msgstr ""
 msgid "Outputs"
 msgstr ""
 
+#: tform1.groupbox4.caption
+msgid "Status"
+msgstr ""
+
 #: tform1.label1.caption
 msgid "Temperature"
+msgstr ""
+
+#: tform1.label10.caption
+msgid "Switching box protection error"
+msgstr ""
+
+#: tform1.label11.caption
+msgid "Low water pressure"
+msgstr ""
+
+#: tform1.label12.caption
+msgid "Bad humidity"
+msgstr ""
+
+#: tform1.label13.caption
+msgid "Heating"
+msgstr ""
+
+#: tform1.label14.caption
+msgid "Lighting"
+msgstr ""
+
+#: tform1.label15.caption
+msgid "Ventilating"
+msgstr ""
+
+#: tform1.label16.caption
+msgid "Humidifying"
 msgstr ""
 
 #: tform1.label2.caption
@@ -55,6 +103,26 @@ msgstr ""
 
 #: tform1.label4.caption
 msgid "0 %"
+msgstr ""
+
+#: tform1.label5.caption
+msgid "Switching box manual control"
+msgstr ""
+
+#: tform1.label6.caption
+msgid "Switching box overcurrent protection"
+msgstr ""
+
+#: tform1.label7.caption
+msgid "Water pressure detector"
+msgstr ""
+
+#: tform1.label8.caption
+msgid "Door and window opening detector"
+msgstr ""
+
+#: tform1.label9.caption
+msgid "Bad temperature"
 msgstr ""
 
 #: tform1.speedbutton1.hint

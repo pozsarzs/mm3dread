@@ -17,7 +17,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="2"/>
-      <StringTable Comments="Status reader program for MM3D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2022 Pozsár Zsolt" ProductName="MM3DRead" ProductVersion="0.2"/>
+      <StringTable Comments="Status reader program for MM3D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2023 Pozsár Zsolt" ProductName="MM3DRead" ProductVersion="0.3"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

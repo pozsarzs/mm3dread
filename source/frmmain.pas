@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM3DRead v0.3 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -99,6 +99,10 @@ resourcestring
   MESSAGE01 = 'Cannot read configuration file!';
   MESSAGE02 = 'Cannot write configuration file!';
   MESSAGE03 = 'Cannot read data from this URL!';
+  MESSAGE04 = 'Hyphae';
+  MESSAGE05 = 'Mushroom';
+  MESSAGE06 = 'The number of received data is wrong!';
+  MESSAGE07 = 'Use v0.8 or higher software on the controller!';
 
 implementation
 
@@ -109,52 +113,22 @@ implementation
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 var
   format: TFormatSettings;
-  good: boolean;
+  errorcode: byte;
   ledoff, ledon: TColor;
   t, rh: single;
 begin
-  good := getdatafromdevice(ComboBox1.Text, Edit1.Text);
-  if good then
+  errorcode := getdatafromdevice(ComboBox1.Text, Edit1.Text);
+  if errorcode = 0 then
     if (value0.Count < 2) or (value1.Count < 4) or (value2.Count < 12) or
-      (value3.Count < 16) then
-      good := False
+      (value3.Count < 16) or (value4.Count < 4) then
+      errorcode := 2
     else
-      good := True;
-  if good then
+      errorcode := 0;
+  if errorcode = 0 then
   begin
     format.DecimalSeparator := '.';
     trystrtofloat(value3.Strings[2], t, format);
     trystrtofloat(value3.Strings[3], rh, format);
-  end;
-  if not good then
-  begin
-    // displays
-    Label3.Caption := '0 °C';
-    Label4.Caption := '0 %';
-    // LEDs
-    ledoff := clGreen;
-    Shape3.Brush.Color := ledoff;
-    Shape4.Brush.Color := ledoff;
-    Shape5.Brush.Color := ledoff;
-    Shape6.Brush.Color := ledoff;
-    ledoff := clMaroon;
-    Shape7.Brush.Color := ledoff;
-    Shape8.Brush.Color := ledoff;
-    Shape9.Brush.Color := ledoff;
-    Shape10.Brush.Color := ledoff;
-    ledoff := clOlive;
-    Shape11.Brush.Color := ledoff;
-    Shape12.Brush.Color := ledoff;
-    Shape13.Brush.Color := ledoff;
-    Shape14.Brush.Color := ledoff;
-    // status bar
-    StatusBar1.Panels.Items[0].Text := '';
-    StatusBar1.Panels.Items[1].Text := '';
-    Form1.Caption := APPNAME + ' v' + VERSION;
-    ShowMessage(MESSAGE03);
-  end
-  else
-  begin
     // labels
     Label5.Caption := value2.Strings[0];
     Label6.Caption := value2.Strings[1];
@@ -180,6 +154,7 @@ begin
     else
       Label4.Caption := '0 %';
     // LEDs
+    // - green
     ledoff := clGreen;
     ledon := clLime;
     if value3.Strings[4] = '1' then
@@ -198,6 +173,7 @@ begin
       Shape6.Brush.Color := ledon
     else
       Shape6.Brush.Color := ledoff;
+    // - red
     ledoff := clMaroon;
     ledon := clred;
     if value3.Strings[12] = '1' then
@@ -216,6 +192,7 @@ begin
       Shape10.Brush.Color := ledon
     else
       Shape10.Brush.Color := ledoff;
+    // - yellow
     ledoff := clOlive;
     ledon := clYellow;
     if value3.Strings[8] = '1' then
@@ -234,10 +211,78 @@ begin
       Shape14.Brush.Color := ledon
     else
       Shape14.Brush.Color := ledoff;
+    // - labels
+    if value4.Strings[0] = 'off' then
+      Label13.Font.Color := clRed;
+    if value4.Strings[0] = 'on' then
+      Label13.Font.Color := clGreen;
+    if value4.Strings[0] = 'neutral' then
+      Label13.Font.Color := clBlack;
+    if value4.Strings[1] = 'off' then
+      Label14.Font.Color := clRed;
+    if value4.Strings[1] = 'on' then
+      Label14.Font.Color := clGreen;
+    if value4.Strings[1] = 'neutral' then
+      Label14.Font.Color := clBlack;
+    if value4.Strings[2] = 'off' then
+      Label15.Font.Color := clRed;
+    if value4.Strings[2] = 'on' then
+      Label15.Font.Color := clGreen;
+    if value4.Strings[2] = 'neutral' then
+      Label15.Font.Color := clBlack;
+    if value4.Strings[3] = 'off' then
+      Label16.Font.Color := clRed;
+    if value4.Strings[3] = 'on' then
+      Label16.Font.Color := clGreen;
+    if value4.Strings[3] = 'neutral' then
+      Label16.Font.Color := clBlack;
     // status bar
     StatusBar1.Panels.Items[0].Text := value0.Strings[0] + ' ' + value0.Strings[1];
     StatusBar1.Panels.Items[1].Text := value3.Strings[0] + ' ' + value3.Strings[1];
+    if value3.Strings[6] = '1' then
+      StatusBar1.Panels.Items[2].Text := MESSAGE04
+    else
+      StatusBar1.Panels.Items[2].Text := MESSAGE05;
     Form1.Caption := APPNAME + ' v' + VERSION + ' | ' + value1.Strings[3];
+  end
+  else
+  begin
+    // displays
+    Label3.Caption := '0 °C';
+    Label4.Caption := '0 %';
+    // LEDs
+    // - green
+    ledoff := clGreen;
+    Shape3.Brush.Color := ledoff;
+    Shape4.Brush.Color := ledoff;
+    Shape5.Brush.Color := ledoff;
+    Shape6.Brush.Color := ledoff;
+    // - red
+    ledoff := clMaroon;
+    Shape7.Brush.Color := ledoff;
+    Shape8.Brush.Color := ledoff;
+    Shape9.Brush.Color := ledoff;
+    Shape10.Brush.Color := ledoff;
+    // - yellow
+    ledoff := clOlive;
+    Shape11.Brush.Color := ledoff;
+    Shape12.Brush.Color := ledoff;
+    Shape13.Brush.Color := ledoff;
+    Shape14.Brush.Color := ledoff;
+    // - labels
+    Label13.Font.Color := clBlack;
+    Label14.Font.Color := clBlack;
+    Label15.Font.Color := clBlack;
+    Label16.Font.Color := clBlack;
+    // status bar
+    StatusBar1.Panels.Items[0].Text := '';
+    StatusBar1.Panels.Items[1].Text := '';
+    StatusBar1.Panels.Items[2].Text := '';
+    Form1.Caption := APPNAME + ' v' + VERSION;
+    case errorcode of
+      1: ShowMessage(MESSAGE03);
+      2: ShowMessage(MESSAGE06 + #10 + MESSAGE07);
+    end;
   end;
 end;
 
@@ -315,6 +360,7 @@ begin
   untcommonproc.value1 := TStringList.Create;
   untcommonproc.value2 := TStringList.Create;
   untcommonproc.value3 := TStringList.Create;
+  untcommonproc.value4 := TStringList.Create;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
@@ -339,6 +385,7 @@ begin
   untcommonproc.value1.Free;
   untcommonproc.value2.Free;
   untcommonproc.value3.Free;
+  untcommonproc.value4.Free;
 end;
 
 end.

@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM3DRead v0.3 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
@@ -21,7 +21,7 @@ uses
   Classes, Dialogs, INIFiles, SysUtils, {$IFDEF WIN32}Windows,{$ENDIF} httpsend;
 
 var
-  value0, value1, value2, value3: TStringList;
+  value0, value1, value2, value3, value4: TStringList;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -31,12 +31,11 @@ var
 const
   CSIDL_PROFILE = 40;
   SHGFP_TYPE_CURRENT = 0;
-
 {$ENDIF}
 
 {$I config.pas}
 
-function getdatafromdevice(url, uid: string): boolean;
+function getdatafromdevice(url, uid: string): byte;
 function getexepath: string;
 function getlang: string;
 function loadconfiguration(filename: string): boolean;
@@ -52,23 +51,30 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: integer; hToken: THandle;
 implementation
 
 // get data from controller device via http
-function getdatafromdevice(url, uid: string): boolean;
+function getdatafromdevice(url, uid: string): byte;
+const
+  s1 = '/cgi-bin/getdata.cgi?uid=';
+  s2 = '&value=';
 begin
-  Result := True;
+  Result := 0;
   value0.Clear;
   value1.Clear;
   value2.Clear;
   value3.Clear;
+  value4.Clear;
+  url := url + s1 + uid + s2;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=0', value0) then
-      Result := False;
-    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=1', value1) then
-      Result := False;
-    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=2', value2) then
-      Result := False;
-    if not HttpGetText(url + '/cgi-bin/getdata.cgi?uid=' + uid + '&value=3', value3) then
-      Result := False;
+    if not HttpGetText(url + '0', value0) then
+      Result := 1;
+    if not HttpGetText(url + '1', value1) then
+      Result := 1;
+    if not HttpGetText(url + '2', value2) then
+      Result := 1;
+    if not HttpGetText(url + '3', value3) then
+      Result := 1;
+    if not HttpGetText(url + '4', value4) then
+      Result := 1;
     Free;
   end;
 end;
@@ -94,8 +100,6 @@ begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
  {$ENDIF}
- {$IFDEF ANDROID}
- {$ENDIF}
  {$IFDEF WIN32}
   size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
   getmem(buffer, size);
@@ -108,7 +112,7 @@ begin
  {$ENDIF}
   if length(s) = 0 then
     s := 'en';
-    lang := lowercase(s[1..2]);
+  lang := lowercase(s[1..2]);
   Result := lang;
 end;
 
@@ -160,15 +164,11 @@ var
     ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
     Result := string(PChar(@buffer));
   end;
-
 {$ENDIF}
 
 begin
  {$IFDEF UNIX}
   userdir := getenvironmentvariable('HOME');
- {$ENDIF}
- {$IFDEF ANDROID}
-  userdir := '/data/data/hu.szerafingomba.mm3dread';
  {$ENDIF}
  {$IFDEF WIN32}
   userdir := getuserprofile;

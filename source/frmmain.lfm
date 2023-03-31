@@ -2,10 +2,10 @@ object Form1: TForm1
   Left = 305
   Height = 551
   Top = 51
-  Width = 306
+  Width = 359
   Caption = 'Form1'
   ClientHeight = 551
-  ClientWidth = 306
+  ClientWidth = 359
   Constraints.MinHeight = 550
   Constraints.MinWidth = 306
   Icon.Data = {
@@ -125,7 +125,7 @@ object Form1: TForm1
     Height = 27
     Hint = 'URL'
     Top = 4
-    Width = 298
+    Width = 351
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -143,7 +143,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton2
     AnchorSideBottom.Side = asrCenter
-    Left = 225
+    Left = 278
     Height = 23
     Hint = 'Read data from device'
     Top = 35
@@ -202,7 +202,7 @@ object Form1: TForm1
     Left = 4
     Height = 13
     Top = 64
-    Width = 298
+    Width = 351
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Shape = bsTopLine
@@ -300,12 +300,12 @@ object Form1: TForm1
     Left = 4
     Height = 128
     Top = 135
-    Width = 298
+    Width = 351
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Inputs'
     ClientHeight = 111
-    ClientWidth = 294
+    ClientWidth = 347
     TabOrder = 2
     object Bevel4: TBevel
       AnchorSideLeft.Control = GroupBox1
@@ -342,10 +342,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 9
-      Width = 35
+      Width = 37
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'In #1'
+      Caption = 'IN #1'
       ParentColor = False
       ParentShowHint = False
     end
@@ -383,10 +383,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 35
-      Width = 35
+      Width = 37
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'In #2'
+      Caption = 'IN #2'
       ParentColor = False
       ParentShowHint = False
     end
@@ -424,10 +424,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 61
-      Width = 35
+      Width = 37
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'In #3'
+      Caption = 'IN #3'
       ParentColor = False
       ParentShowHint = False
     end
@@ -466,10 +466,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 87
-      Width = 35
+      Width = 37
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'In #4'
+      Caption = 'IN #4'
       ParentColor = False
       ParentShowHint = False
     end
@@ -483,12 +483,12 @@ object Form1: TForm1
     Left = 4
     Height = 132
     Top = 267
-    Width = 298
+    Width = 351
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Errors'
     ClientHeight = 115
-    ClientWidth = 294
+    ClientWidth = 347
     TabOrder = 3
     object Bevel8: TBevel
       AnchorSideLeft.Control = GroupBox2
@@ -524,10 +524,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 9
-      Width = 54
+      Width = 49
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Error #1'
+      Caption = 'ERR #1'
       ParentColor = False
       ParentShowHint = False
     end
@@ -565,10 +565,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 35
-      Width = 54
+      Width = 49
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Error #2'
+      Caption = 'ERR #2'
       ParentColor = False
       ParentShowHint = False
     end
@@ -606,10 +606,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 61
-      Width = 54
+      Width = 49
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Error #3'
+      Caption = 'ERR #3'
       ParentColor = False
       ParentShowHint = False
     end
@@ -647,10 +647,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 87
-      Width = 54
+      Width = 49
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Error #4'
+      Caption = 'ERR #4'
       ParentColor = False
       ParentShowHint = False
     end
@@ -659,17 +659,18 @@ object Form1: TForm1
     AnchorSideLeft.Control = GroupBox1
     AnchorSideTop.Control = GroupBox2
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = GroupBox1
+    AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 4
     Height = 129
     Top = 403
-    Width = 298
+    Width = 351
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
     Caption = 'Outputs'
     ClientHeight = 112
-    ClientWidth = 294
+    ClientWidth = 347
     TabOrder = 4
     object Bevel12: TBevel
       AnchorSideLeft.Control = GroupBox3
@@ -705,10 +706,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 9
-      Width = 46
+      Width = 51
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Out #1'
+      Caption = 'OUT #1'
       ParentColor = False
       ParentShowHint = False
     end
@@ -746,10 +747,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 35
-      Width = 46
+      Width = 51
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Out #2'
+      Caption = 'OUT #2'
       ParentColor = False
       ParentShowHint = False
     end
@@ -787,10 +788,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 61
-      Width = 46
+      Width = 51
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Out #3'
+      Caption = 'OUT #3'
       ParentColor = False
       ParentShowHint = False
     end
@@ -828,10 +829,10 @@ object Form1: TForm1
       Left = 54
       Height = 15
       Top = 87
-      Width = 46
+      Width = 51
       Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 8
-      Caption = 'Out #4'
+      Caption = 'OUT #4'
       ParentColor = False
       ParentShowHint = False
     end
@@ -840,26 +841,27 @@ object Form1: TForm1
     Left = 0
     Height = 19
     Top = 532
-    Width = 306
+    Width = 359
     Panels = <    
       item
         Alignment = taCenter
-        Width = 80
+        Width = 100
       end    
       item
         Alignment = taCenter
-        Width = 120
+        Width = 150
       end    
       item
-        Width = 50
+        Width = 100
       end>
+    ParentShowHint = False
     SimplePanel = False
   end
   object SpeedButton2: TSpeedButton
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton3
-    Left = 252
+    Left = 305
     Height = 22
     Hint = 'Add URL to list'
     Top = 35
@@ -914,7 +916,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 279
+    Left = 332
     Height = 22
     Hint = 'Remove URL from list'
     Top = 35
@@ -973,14 +975,15 @@ object Form1: TForm1
     Height = 25
     Hint = 'UID'
     Top = 35
-    Width = 217
+    Width = 270
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
+    EchoMode = emPassword
     ParentShowHint = False
+    PasswordChar = '*'
     ShowHint = True
     TabOrder = 1
-    Text = '00000000'
   end
 end

@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM3DRead v0.2 * Status reader program for MM3D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
-{ | mm5dread.lpr                                                             | }
+{ | MM3DRead v0.3 * Status reader program for MM3D device                    | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | mm3dread.lpr                                                             | }
 { | Project file                                                             | }
 { +--------------------------------------------------------------------------+ }
 
@@ -36,11 +36,7 @@ const
     ('-v', '--version', 'show version and build information')
     );
 
-{$IFDEF FHS}
-  {$I config.pas}
-{$ELSE}
-  {$I config.pas.in}
-{$ENDIF}
+{$I config.pas}
 
 {$R *.res}
 
@@ -57,7 +53,11 @@ const
     begin
      {$IFDEF UNIX}
       writeln('Usage:');
-      writeln(' ', fn,{$IFDEF WIN32}'.', fe,{$ENDIF}' [parameter]');
+      writeln(' ', fn,
+{$IFDEF WIN32}
+        '.', fe,
+{$ENDIF}
+        ' [parameter]');
       writeln;
       writeln('parameters:');
       for b := 1 to 2 do
@@ -75,7 +75,8 @@ const
       s := s + ' ' + fn + ' [parameter]' + #13 + #10 + #13 + #10;
       s := s + 'parameters:';
       for b := 1 to 2 do
-        s := s + #13 + #10 + '  ' + params[b, 1] + ', ' + params[b, 2] + ': ' + params[b, 3];
+        s := s + #13 + #10 + '  ' + params[b, 1] + ', ' + params[b, 2] +
+          ': ' + params[b, 3];
       ShowMessage(s);
      {$ENDIF}
     end;
@@ -91,16 +92,38 @@ const
  {$IFDEF UNIX}
     writeln(APPNAME + ' v' + VERSION);
     writeln;
-    writeln('This application was compiled at ',{$I %TIME%}, ' on ',{$I %DATE%}, ' by ',{$I %USER%});
-    writeln('FPC version: ',{$I %FPCVERSION%});
-    writeln('Target OS:   ',{$I %FPCTARGETOS%});
-    writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
+    writeln('This application was compiled at ',
+{$I %TIME%}
+      , ' on ',
+{$I %DATE%}
+      , ' by ',
+{$I %USER%}
+      );
+    writeln('FPC version: ',
+{$I %FPCVERSION%}
+      );
+    writeln('Target OS:   ',
+{$I %FPCTARGETOS%}
+      );
+    writeln('Target CPU:  ',
+{$I %FPCTARGETCPU%}
+      );
  {$ENDIF}
  {$IFDEF WIN32}
     s := APPNAME + ' v' + VERSION + #13 + #10 + #13 + #10;
-    s := s + 'This was compiled at ' + {$I %TIME%}+' on ' + {$I %DATE%} +' by ' + {$I %USERNAME%} +'.' + #13 + #10 + #13 + #10;
-    s := s + 'FPC version: ' + {$I %FPCVERSION%} + #13 + #10;
-    s := s + 'Target OS:   ' + {$I %FPCTARGETOS%}+ #13 + #10;
+    s := s + 'This was compiled at ' +
+{$I %TIME%}
+      +' on ' +
+{$I %DATE%}
+      +' by ' +
+{$I %USERNAME%}
+      +'.' + #13 + #10 + #13 + #10;
+    s := s + 'FPC version: ' +
+{$I %FPCVERSION%}
+      +#13 + #10;
+    s := s + 'Target OS:   ' +
+{$I %FPCTARGETOS%}
+      +#13 + #10;
     s := s + 'Target CPU:  ' + {$I %FPCTARGETCPU%};
     ShowMessage(s);
  {$ENDIF}
