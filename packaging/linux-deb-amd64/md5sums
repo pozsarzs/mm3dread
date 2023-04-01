@@ -1,10 +1,10 @@
-efae2e7b68fb13fc0059869f4608be8e  usr/bin/mm3dread
+bef403ed7a87a5136abb68d38271ef1d  usr/bin/mm3dread
 c9c034d706ac5b20907ce7d6560a1212  usr/share/applications/mm3dread.desktop
 4994f4cacf022e01ffda29f5627f7ab5  usr/share/doc/mm3dread/AUTHORS
-6f002fc7acda32f7a00a05db4133898f  usr/share/doc/mm3dread/changelog.gz
-40a29a5ec427fc848370a7b2ee2f3aaf  usr/share/doc/mm3dread/copyright
-5c28cd5996e2154a3cc4b02183f5cb06  usr/share/doc/mm3dread/README
-41cf1884673a8ad6f57cff3abca53ee2  usr/share/doc/mm3dread/VERSION
-9a552eb38c0d069ca60e88e836b4de02  usr/share/locale/hu/LC_MESSAGES/mm3dread.mo
-b0180aea21537a1657c3a6f46d16d7d3  usr/share/man/man1/mm3dread.1.gz
+b4de4ae9abc8f7f19658b6d65d38a902  usr/share/doc/mm3dread/changelog.gz
+7e738df002f3097ef56bc5d5de76c7ac  usr/share/doc/mm3dread/copyright
+33803e4cdaf3ea8cf10ea880082ebcf0  usr/share/doc/mm3dread/README
+f4b5992df2bbde4ae95c396ed9be98e3  usr/share/doc/mm3dread/VERSION
+857d9003e9df4d379ac05dac8e3fe595  usr/share/locale/hu/LC_MESSAGES/mm3dread.mo
+346ed798d212ba394f7cfb5cab5528cd  usr/share/man/man1/mm3dread.1.gz
 103da7d9d3ed00f1433816a8405ca64e  usr/share/pixmaps/mm3dread.xpm
